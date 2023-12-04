@@ -1,0 +1,50 @@
+
+
+.slidesContainer {
+  display: flex;
+  flex-direction: column;
+  min-height:40rem;
+}
+
+.slidesContainer {
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+.description {
+  padding: 2rem;
+  h3 {
+    font-family: "Tenor Sans", sans-serif;
+    font-weight: 400;
+    font-size: 1.7rem;
+    line-height: 3rem;
+  }
+  p{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.4rem;
+    color:#7d7d7d;
+    padding-top:1rem;
+  }
+}
+
+.animated {
+  animation-name: display;
+  animation-duration: 1s;
+}
+@keyframes display {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@media (max-width:425px){
+  .slidesContainer{
+    min-height: 35rem;
+  }
+}
