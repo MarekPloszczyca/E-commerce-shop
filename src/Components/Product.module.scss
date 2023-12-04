@@ -1,0 +1,31 @@
+.productContainer {
+  text-align: center;
+  padding: 2rem;
+  font-family: "Tenor Sans", sans-serif;
+  img {
+    width: 50%;
+  }
+  h6 {
+    font-size: 1rem;
+    padding: 1rem;
+    font-weight: 600;
+  }
+  p {
+    letter-spacing: 0.2rem;
+    padding-bottom: 1rem;
+  }
+  button {
+    padding: 1rem 3rem;
+    border-radius: 4rem;
+    border: none;
+    background-color: #f0eee4;
+    font-family: "Tenor Sans", sans-serif;
+    font-size: 1rem;
+    svg {
+      position: relative;
+      top: 0.3rem;
+      right: 0.5rem;
+      color: #7e7e7e;
+    }
+  }
+}

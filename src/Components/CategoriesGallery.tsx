@@ -7,9 +7,9 @@ import Technology from "../Assets/CategoriesImages/Technology.jpg";
 export default function CategoriesGallery() {
   return (
     <div className={styles.categoriesContainer}>
-      <Category src={Clothes} header="Clothes"/>
-      <Category src={Jewelry} header="Jewelry"/>
-      <Category src={Technology} header="Electronics"/>
+      <Category src={Clothes} header="Clothes" />
+      <Category src={Jewelry} header="Jewelry" />
+      <Category src={Technology} header="Electronics" />
     </div>
   );
 }

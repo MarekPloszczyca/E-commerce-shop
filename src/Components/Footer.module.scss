@@ -1,0 +1,20 @@
+.footer {
+  font-family: "Tenor Sans", sans-serif;
+  text-align: center;
+  background-color: #255841;
+  color: #ffffff;
+  ul {
+    padding-top: 2rem;
+    font-size: 2rem;
+    list-style-type: none;
+    svg {
+      position: relative;
+      top: 0.1rem;
+      margin-left: 0.5rem;
+    }
+    li {
+      font-size: 1rem;
+      padding: 0.5rem;
+    }
+  }
+}
