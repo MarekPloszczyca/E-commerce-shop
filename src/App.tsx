@@ -3,13 +3,15 @@ import { Fragment } from "react";
 import Navigation from "./Components/Navigation";
 import SlidesContainer from "./Components/SlidesContainer";
 import BriefInfo from "./Components/BriefInfo";
+import CategoriesGallery from "./Components/CategoriesGallery";
 
 function App() {
   return (
     <Fragment>
       <Navigation />
       <SlidesContainer />
-      <BriefInfo/>
+      <BriefInfo />
+      <CategoriesGallery />
     </Fragment>
   );
 }
