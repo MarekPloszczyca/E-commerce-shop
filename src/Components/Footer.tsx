@@ -1,6 +1,10 @@
 import styles from "./Footer.module.scss";
 import { useState } from "react";
 import { CaretDownOutline } from "react-ionicons";
+import Socials from "./Socials";
+import Facebook from "../Assets/Socials/Facebook.png";
+import Instagram from "../Assets/Socials/Instagram.png";
+
 
 export default function Footer() {
   const [informationsDisplay, setInformationsDisplay] = useState(false);
@@ -30,6 +34,8 @@ export default function Footer() {
         {deliveryDisplay && <li>Products packing</li>}{" "}
         {deliveryDisplay && <li>Prices and ways of delivery</li>}
       </ul>
+      <div className={styles.socials}><Socials src={Facebook}/>
+      <Socials src={Instagram}/></div>
     </footer>
   );
 }

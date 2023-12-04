@@ -1,9 +1,13 @@
 .footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   font-family: "Tenor Sans", sans-serif;
-  text-align: center;
   background-color: #255841;
   color: #ffffff;
   ul {
+    text-align: center;
     padding-top: 2rem;
     font-size: 2rem;
     list-style-type: none;
@@ -17,4 +21,11 @@
       padding: 0.5rem;
     }
   }
+}
+.socials{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:3rem;
 }

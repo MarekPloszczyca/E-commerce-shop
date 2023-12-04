@@ -1,0 +1,14 @@
+.socials{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:4rem;
+    height:4rem;
+    border:solid 0.01rem #ffffff;
+    border-radius: 50%;
+    margin:1rem 1rem 3rem 1rem;
+   img{
+    width:2rem;
+    z-index: 5;
+   }
+}
