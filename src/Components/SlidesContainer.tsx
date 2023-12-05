@@ -53,8 +53,8 @@ export default function SlidesContainer() {
         className={animation ? styles.animated : undefined}
       />
       <div className={styles.description}>
-        <h3 className={animation ? styles.animated : undefined}>{slide.header}</h3>
-        <p className={animation ? styles.animated : undefined}>{slide.text}</p>
+        <h3>{slide.header}</h3>
+        <p>{slide.text}</p>
       </div>
     </div>
   );
