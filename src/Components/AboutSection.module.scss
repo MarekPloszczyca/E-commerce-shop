@@ -1,0 +1,35 @@
+.aboutSection{
+    padding:1rem;
+    img{
+        width:100%;
+        height:auto
+    }
+    p{
+        font-family: "Open sans", sans-serif;
+        font-size: 1.3rem;
+        padding:2rem 0;
+        text-align: justify;
+    }
+}
+@media (min-width:768px){
+    .aboutSection{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding:4rem 1rem;
+        img{
+            width:50%;
+        }
+        p{position: relative;
+            right:4rem;
+            background-color: #fcf6ee;
+            font-size: 1rem;
+            padding:1rem;
+        }
+    }
+}
+@media (min-width:1440px){
+    .aboutSection p {
+        font-size: 1.8rem;
+    }
+}

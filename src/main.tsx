@@ -5,7 +5,8 @@ import App from "./Routes/App.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./Components/ErrorPage.tsx";
 import Contact from "./Routes/Contact.tsx";
-
+import AboutUs from "./Routes/AboutUs.tsx";
+import Packing from "./Routes/Packing.tsx";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,12 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   { path: "/contact", element: <Contact />, errorElement: <ErrorPage /> },
+  { path: "/aboutUs", element: <AboutUs />, errorElement: <ErrorPage /> },
+  {
+    path: "/productsPacking",
+    element: <Packing />,
+    errorElement: <ErrorPage />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

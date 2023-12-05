@@ -7,7 +7,7 @@ interface Props {
 
 export default function Category(props: Props) {
   return (
-    <div>
+    <div className={styles.category}>
       <img src={props.src}></img>
       <div className={styles.categoryTitle}>
         <h5>{props.header}</h5>

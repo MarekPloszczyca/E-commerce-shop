@@ -1,0 +1,15 @@
+
+.text{
+    font-family: "Open sans", sans-serif;
+    font-size: 1.3rem;
+    padding:2rem 1rem;
+    text-align: center;
+}
+@media (min-width:768px){
+    .secondSection div{
+        flex-direction: row-reverse !important;
+        p{
+            left:4rem;
+        }
+    }
+}

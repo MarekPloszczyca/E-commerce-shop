@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
 import styles from "./PopularProducts.module.scss";
+import { useEffect, useState, Fragment } from "react";
 import Product from "./Product";
+import SectionHeader from "./SectionHeader";
 
 export default function PopularProducts() {
   const [popular, setPopular] = useState([]);
@@ -9,7 +10,7 @@ export default function PopularProducts() {
     const fetchProducts = async () => {
       try {
         const response = await fetch(
-          `https://fakestoreapi.com/products?limit=5`
+          `https://fakestoreapi.com/products?limit=4`
         );
         const productsArray = await response.json();
         const products = productsArray.map(
@@ -40,9 +41,9 @@ export default function PopularProducts() {
   }, [popular]);
 
   return (
-    <div className={styles.productsContainer}>
-      <h3>Popular products</h3>
-      {popular}
-    </div>
+    <Fragment>
+      <SectionHeader text="Popular Products" />
+      <div className={styles.productsContainer}>{popular}</div>
+    </Fragment>
   );
 }

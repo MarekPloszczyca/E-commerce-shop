@@ -1,4 +1,3 @@
-
 import { Fragment } from "react";
 import Navigation from "../Components/Navigation";
 import SlidesContainer from "../Components/SlidesContainer";

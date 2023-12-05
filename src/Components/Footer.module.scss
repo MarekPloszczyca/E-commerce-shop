@@ -29,3 +29,33 @@
   align-items: center;
   margin-top:3rem;
 }
+.desktopList{
+  display: none;
+}
+@media (min-width:768px){
+  .footer{
+    flex-direction: row;
+
+  }
+  .mobileList{
+    display: none;
+  }
+  .desktopList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:33%;
+    height:10rem;
+    padding:1rem;
+    
+    span{
+      padding: 0.5rem;
+      text-decoration: underline;
+      text-decoration-thickness: 0.05rem;
+    }
+  }
+  .socials{
+    width:33%;
+  }
+}

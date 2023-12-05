@@ -5,7 +5,7 @@ export default function ContactInformations() {
   return (
     <Fragment>
       <div className={styles.contactInformations}>
-        <h1>Contact</h1>
+    
         <p>
           <span>Product. sp.z o.o</span>
         </p>
@@ -19,7 +19,7 @@ export default function ContactInformations() {
       <div className={styles.moreInfo}>
         <p>
           You can call us from <span>9:00 a.m.</span> to <span>6:00 p.m.</span>{" "}
-          from <span>Monday</span> to <span>Saturday.</span>
+          from <span>Monday</span> to <span>Saturday. </span>
           If you have cooperation offers you can also send us an email, we will
           respond to it within 24 hours maximum.
         </p>

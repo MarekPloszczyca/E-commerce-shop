@@ -2,8 +2,10 @@
   text-align: center;
   padding: 2rem;
   font-family: "Tenor Sans", sans-serif;
+
   img {
     width: 50%;
+    height: auto;
   }
   h6 {
     font-size: 1rem;
@@ -26,6 +28,31 @@
       top: 0.3rem;
       right: 0.5rem;
       color: #7e7e7e;
+    }
+  }
+}
+@media (min-width: 768px) {
+  .productContainer {
+    min-height: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    img {
+      width: 30vw;
+      height: 40vw;
+    }
+    h6 {
+      min-height: 3rem;
+    }
+  }
+}
+@media (min-width: 1440px) {
+  .productContainer {
+    padding-top: 10rem;
+    img {
+      width: 15vw;
+      height: 20vw;
     }
   }
 }

@@ -21,12 +21,16 @@ export default function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <ul>
+      <ul className={styles.mobileList}>
         <span onClick={displayInformationsChange}>
           Informations
           <CaretDownOutline color="#ffffff" width="1rem" />
         </span>
-        {informationsDisplay && <li>About us</li>}
+        {informationsDisplay && (
+          <Link to={"/aboutUs"}>
+            <li>About us</li>
+          </Link>
+        )}
         {informationsDisplay && (
           <Link to={"/contact"}>
             <li>Contact</li>
@@ -34,13 +38,33 @@ export default function Footer() {
         )}
       </ul>
 
-      <ul>
+      <ul className={styles.mobileList}>
         <span onClick={displayDeliveryChange}>
           Delivery
           <CaretDownOutline color="#ffffff" width="1rem" />
         </span>
-        {deliveryDisplay && <li>Products packing</li>}
+        {deliveryDisplay && (
+          <Link to={"/productsPacking"}>
+            <li>Products packing</li>
+          </Link>
+        )}
         {deliveryDisplay && <li>Prices and ways of delivery</li>}
+      </ul>
+      <ul className={styles.desktopList}>
+        <span>Informations</span>
+        <Link to={"/aboutUs"}>
+          <li>About us</li>
+        </Link>
+        <Link to={"/contact"}>
+          <li>Contact</li>
+        </Link>
+      </ul>
+      <ul className={styles.desktopList}>
+        <span>Delivery</span>
+        <Link to={"/productsPacking"}>
+          <li>Products packing</li>
+        </Link>
+        <li>Prices and ways of delivery</li>
       </ul>
       <div className={styles.socials}>
         <Socials src={Facebook} />

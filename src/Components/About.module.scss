@@ -22,4 +22,36 @@
     }
    
 }
+@media (min-width:1024px){
+    .aboutContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding:5rem 0;
+        img{
+            width:45%;
+            padding:1rem;
+        }
+        div{
+          padding:1rem;
+          h2{
+            font-size: 1.7rem;
+          }
+          p{
+            font-size: 1rem;
+            padding-right: 1.5rem;
+          }
+        }
+    }
+}
+@media (min-width:1440px){
+    .aboutContainer div{
+        h2{
+            font-size: 2rem;
+        }
+        p{
+            font-size: 1.3rem;
+        }
+    }
+}
 
