@@ -1,10 +1,10 @@
 import styles from "./Footer.module.scss";
 import { useState } from "react";
 import { CaretDownOutline } from "react-ionicons";
+import { Link } from "react-router-dom";
 import Socials from "./Socials";
 import Facebook from "../Assets/Socials/Facebook.png";
 import Instagram from "../Assets/Socials/Instagram.png";
-
 
 export default function Footer() {
   const [informationsDisplay, setInformationsDisplay] = useState(false);
@@ -21,21 +21,31 @@ export default function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <ul onClick={displayInformationsChange}>
-        Informations
-        <CaretDownOutline color="#ffffff" width="1rem" />
+      <ul>
+        <span onClick={displayInformationsChange}>
+          Informations
+          <CaretDownOutline color="#ffffff" width="1rem" />
+        </span>
         {informationsDisplay && <li>About us</li>}
-        {informationsDisplay && <li>Contact</li>}
+        {informationsDisplay && (
+          <Link to={"/contact"}>
+            <li>Contact</li>
+          </Link>
+        )}
       </ul>
 
-      <ul onClick={displayDeliveryChange}>
-        Delivery
-        <CaretDownOutline color="#ffffff" width="1rem" />{" "}
-        {deliveryDisplay && <li>Products packing</li>}{" "}
+      <ul>
+        <span onClick={displayDeliveryChange}>
+          Delivery
+          <CaretDownOutline color="#ffffff" width="1rem" />
+        </span>
+        {deliveryDisplay && <li>Products packing</li>}
         {deliveryDisplay && <li>Prices and ways of delivery</li>}
       </ul>
-      <div className={styles.socials}><Socials src={Facebook}/>
-      <Socials src={Instagram}/></div>
+      <div className={styles.socials}>
+        <Socials src={Facebook} />
+        <Socials src={Instagram} />
+      </div>
     </footer>
   );
 }
