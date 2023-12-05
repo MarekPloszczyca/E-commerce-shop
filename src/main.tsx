@@ -7,6 +7,7 @@ import ErrorPage from "./Components/ErrorPage.tsx";
 import Contact from "./Routes/Contact.tsx";
 import AboutUs from "./Routes/AboutUs.tsx";
 import Packing from "./Routes/Packing.tsx";
+import Prices from "./Routes/Prices.tsx";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
     element: <Packing />,
     errorElement: <ErrorPage />,
   },
+  { path: "/prices", element: <Prices />, errorElement: <ErrorPage /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

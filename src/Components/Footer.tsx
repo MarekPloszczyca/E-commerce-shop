@@ -48,7 +48,11 @@ export default function Footer() {
             <li>Products packing</li>
           </Link>
         )}
-        {deliveryDisplay && <li>Prices and ways of delivery</li>}
+        {deliveryDisplay && (
+          <Link to={"/prices"}>
+            <li>Prices and ways of delivery</li>
+          </Link>
+        )}
       </ul>
       <ul className={styles.desktopList}>
         <span>Informations</span>
@@ -64,7 +68,9 @@ export default function Footer() {
         <Link to={"/productsPacking"}>
           <li>Products packing</li>
         </Link>
-        <li>Prices and ways of delivery</li>
+        <Link to={"/prices"}>
+          <li>Prices and ways of delivery</li>
+        </Link>
       </ul>
       <div className={styles.socials}>
         <Socials src={Facebook} />
