@@ -14,8 +14,8 @@ export default function Prices() {
       <div className={styles.timeInfo}>
         <h6>Delivery time</h6>
         <p>
-          If you make an order before 1:00 p.m., we will ship it on the same
-          day!
+          If you make an order <span>before 1:00 p.m.</span>, we will ship it on <span>the same
+          day!</span>
         </p>
       </div>
       <PricesGrid />

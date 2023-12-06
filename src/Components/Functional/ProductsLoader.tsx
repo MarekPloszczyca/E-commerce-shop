@@ -1,9 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default async function productLoader({ params } : any) {
+export default async function productsLoader({ params } : any) {
   const response = await fetch(
-    `https://fakestoreapi.com/products/${params.id}`
+    `https://fakestoreapi.com/${params.category}/${params.id}`
   );
   const productDetails = await response.json();
-  console.log(productDetails);
   return { productDetails };
 }

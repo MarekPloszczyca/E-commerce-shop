@@ -8,8 +8,9 @@ import Contact from "./Routes/Contact.tsx";
 import AboutUs from "./Routes/AboutUs.tsx";
 import Packing from "./Routes/Packing.tsx";
 import Prices from "./Routes/Prices.tsx";
-import ProductLoader from "./Components/Functional/SingleProductLoader.tsx";
+import ProductsLoader from "./Components/Functional/ProductsLoader.tsx";
 import ProductPage from "./Routes/ProductPage.tsx";
+import CategoriesPage from "./Routes/CategoriesPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -26,9 +27,15 @@ const router = createBrowserRouter([
   },
   { path: "/prices", element: <Prices />, errorElement: <ErrorPage /> },
   {
-    path: "/products/:id",
+    path: "/:category/:id",
     element: <ProductPage />,
-    loader: ProductLoader,
+    loader: ProductsLoader,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/:category/:id",
+    element: <CategoriesPage />,
+    
     errorElement: <ErrorPage />,
   },
 ]);

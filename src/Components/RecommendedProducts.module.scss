@@ -1,5 +1,9 @@
+.recommendedContainer{
+    padding-bottom:10rem;
+}
+
 @media(max-width:320px){
-    .header h1{
+    .recommendedContainer h1{
         font-size:2.2rem;
     }
 }

@@ -37,7 +37,7 @@ export default function SingleProduct(props: Props) {
   return (
     <div className={styles.productContainer}>
       <img src={props.image} alt="Product Image" />
-      <SectionHeader text={props.title} />
+      <div className={styles.infoContainer}><SectionHeader text={props.title} />
       <p>{props.description}</p>
       <p className={styles.price}>{Math.round(Number(props.price))},99 PLN</p>
       <Link to={"/Prices"}>
@@ -97,7 +97,7 @@ export default function SingleProduct(props: Props) {
         </button>
        
       </div>
-      <div className={styles.cartButton}><AddButton/></div>
+      <div className={styles.cartButton}><AddButton/></div></div>
     </div>
   );
 }
