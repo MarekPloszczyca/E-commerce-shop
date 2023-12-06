@@ -8,6 +8,8 @@ import Contact from "./Routes/Contact.tsx";
 import AboutUs from "./Routes/AboutUs.tsx";
 import Packing from "./Routes/Packing.tsx";
 import Prices from "./Routes/Prices.tsx";
+import ProductLoader from "./Components/Functional/SingleProductLoader.tsx";
+import ProductPage from "./Routes/ProductPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +25,12 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   { path: "/prices", element: <Prices />, errorElement: <ErrorPage /> },
+  {
+    path: "/products/:id",
+    element: <ProductPage />,
+    loader: ProductLoader,
+    errorElement: <ErrorPage />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

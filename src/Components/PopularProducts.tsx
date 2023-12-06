@@ -1,5 +1,6 @@
 import styles from "./PopularProducts.module.scss";
 import { useEffect, useState, Fragment } from "react";
+import { Link } from "react-router-dom";
 import Product from "./Product";
 import SectionHeader from "./SectionHeader";
 
@@ -21,12 +22,13 @@ export default function PopularProducts() {
             price: string;
           }) => {
             return (
-              <Product
-                key={product.id}
-                image={product.image}
-                title={product.title}
-                price={product.price}
-              />
+              <Link key={product.id} to={`/products/${product.id}`}>
+                <Product
+                  image={product.image}
+                  title={product.title}
+                  price={product.price}
+                />
+              </Link>
             );
           }
         );

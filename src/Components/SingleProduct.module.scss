@@ -1,0 +1,60 @@
+.productContainer {
+  padding: 10rem 1rem 3rem 1rem;
+  img {
+    width: 100%;
+    height: auto;
+  }
+  p {
+    font-family: "Open sans", sans-serif;
+    padding-top: 2rem;
+    text-align: center;
+    span {
+      position: relative;
+      top: 0.15rem;
+      left: 0.15rem;
+    }
+  }
+}
+.price {
+  font-family: "Tenor Sans", sans-serif !important;
+  font-size: 1.5rem;
+}
+.link {
+  text-decoration: underline;
+}
+.rating {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-weight: bold;
+}
+.itemCount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Open Sans", sans-serif;
+  padding: 3rem 1rem;
+  button {
+    font-size: 2rem;
+    font-weight: 100;
+    background-color: #ffffff;
+    border: none;
+    margin: 0 2rem;
+  }
+  input {
+    width: 8rem;
+    padding: 1rem 0;
+    font-size: 1.3rem;
+    text-align: center;
+    border-radius: 45%;
+    border: none;
+    border: solid 0.01rem #c8c8c8;
+  }
+  input:focus {
+    outline: none;
+  }
+}
+.cartButton{
+  display: flex;
+  justify-content: center;
+}
