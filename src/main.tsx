@@ -11,6 +11,7 @@ import Prices from "./Routes/Prices.tsx";
 import ProductsLoader from "./Components/Functional/ProductsLoader.tsx";
 import ProductPage from "./Routes/ProductPage.tsx";
 import CategoriesPage from "./Routes/CategoriesPage.tsx";
+import CategoriesLoader from "./Components/Functional/CategoriesLoader.tsx";
 
 const router = createBrowserRouter([
   {
@@ -27,15 +28,15 @@ const router = createBrowserRouter([
   },
   { path: "/prices", element: <Prices />, errorElement: <ErrorPage /> },
   {
-    path: "/:category/:id",
+    path: "/products/:id",
     element: <ProductPage />,
     loader: ProductsLoader,
     errorElement: <ErrorPage />,
   },
   {
-    path: "/:category/:id",
+    path: "products/category/:id",
     element: <CategoriesPage />,
-    
+    loader: CategoriesLoader,
     errorElement: <ErrorPage />,
   },
 ]);

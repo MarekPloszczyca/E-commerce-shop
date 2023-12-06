@@ -31,7 +31,6 @@ export default function ProductPage() {
           }) => {
             return (
               <Product
-                category="products"
                 key={product.id}
                 id={product.id}
                 image={product.image}

@@ -1,7 +1,7 @@
 import styles from "./SlidesContainer.module.scss";
 import { useEffect, useState } from "react";
 import ClothesImage from "../Assets/LandingImages/ClothesImage.jpg";
-import JewelryImage from "../Assets/LandingImages/JewelryImage.jpg";
+import JewelleryImage from "../Assets/LandingImages/JewelryImage.jpg";
 import TechnologyImage from "../Assets/LandingImages/TechnologyImage.jpg";
 
 const clothes = {
@@ -11,10 +11,10 @@ const clothes = {
   text: "Check out our newest collection",
 };
 const jewelry = {
-  image: JewelryImage,
+  image: JewelleryImage,
   alt:"Necklace with stones",
   header: "Find a small gift for your loved one",
-  text: "Jewelry for him and for her",
+  text: "Jewellery for him and for her",
 };
 const technology = {
   image: TechnologyImage,

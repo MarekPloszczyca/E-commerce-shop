@@ -22,7 +22,7 @@ export default function PopularProducts() {
           }) => {
             return (
               <Product
-                category="products"
+              
                 key={product.id}
                 id={product.id}
                 image={product.image}
