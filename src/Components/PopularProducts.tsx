@@ -1,7 +1,7 @@
 import { useEffect, useState, Fragment } from "react";
-import Product from "./Product";
 import SectionHeader from "./SectionHeader";
 import ProductsContainer from "./Models/ProductsContainer";
+import ProductsRender from "./Functional/ProductsRender";
 
 export default function PopularProducts() {
   const [popular, setPopular] = useState([]);
@@ -13,26 +13,7 @@ export default function PopularProducts() {
           `https://fakestoreapi.com/products?limit=5`
         );
         const productsArray = await response.json();
-        const products = productsArray.map(
-          (product: {
-            id: number;
-            image: string;
-            title: string;
-            price: string;
-          }) => {
-            return (
-              <Product
-              
-                key={product.id}
-                id={product.id}
-                image={product.image}
-                title={product.title}
-                price={product.price}
-              />
-            );
-          }
-        );
-        setPopular(products);
+        ProductsRender(productsArray, setPopular);
       } catch (error) {
         return console.log(error);
       }
