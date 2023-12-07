@@ -7,13 +7,17 @@ export default function PopularProducts() {
   const [popular, setPopular] = useState([]);
 
   useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
     const fetchProducts = async () => {
       try {
         const response = await fetch(
-          `https://fakestoreapi.com/products?limit=5`
+          `https://fakestoreapi.com/products?limit=5`,
+          { signal }
         );
         const productsArray = await response.json();
         ProductsRender(productsArray, setPopular);
+        return controller.abort();
       } catch (error) {
         return console.log(error);
       }
@@ -21,6 +25,7 @@ export default function PopularProducts() {
     if (popular.length !== 5) {
       fetchProducts();
     }
+   
   }, [popular]);
 
   return (

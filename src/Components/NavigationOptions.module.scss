@@ -1,0 +1,46 @@
+ul {
+  display: flex;
+  padding: 1rem;
+  font-weight: bold;
+  list-style-type: none;
+
+  p {
+    display: flex;
+    svg {
+      position: relative;
+      right: 0.8rem;
+      width: 1.2rem;
+      transform: rotate(0);
+      transition: 0.4s;
+    }
+  }
+  div {
+    position: relative;
+    right: 2rem;
+  }
+
+  li {
+    padding: 0 0.5rem 0.7rem 0.5rem;
+  }
+}
+
+.clicked svg {
+  transform: rotate(180deg) !important;
+}
+
+.categoriesContainerHidden {
+  overflow: hidden;
+  transition: 0.4s;
+  li {
+    position: relative;
+    right: 10rem;
+    transition: 0.4s;
+  }
+}
+
+.categoriesContainer {
+  @extend .categoriesContainerHidden;
+  li {
+    right: 0;
+  }
+}
