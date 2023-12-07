@@ -21,38 +21,36 @@ export default function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <ul className={styles.mobileList}>
+      <ul className={informationsDisplay ? styles.clicked : styles.mobileList}>
         <span onClick={displayInformationsChange}>
           Informations
           <CaretDownOutline color="#ffffff" width="1rem" />
         </span>
-        {informationsDisplay && (
+        <div className={informationsDisplay ? styles.displayed : styles.hidden}>
           <Link to={"/aboutUs"}>
             <li>About us</li>
           </Link>
-        )}
-        {informationsDisplay && (
+
           <Link to={"/contact"}>
             <li>Contact</li>
           </Link>
-        )}
+        </div>
       </ul>
 
-      <ul className={styles.mobileList}>
+      <ul className={deliveryDisplay ? styles.clicked : styles.mobileList}>
         <span onClick={displayDeliveryChange}>
           Delivery
           <CaretDownOutline color="#ffffff" width="1rem" />
         </span>
-        {deliveryDisplay && (
+        <div className={deliveryDisplay ? styles.displayed : styles.hidden}>
           <Link to={"/productsPacking"}>
             <li>Products packing</li>
           </Link>
-        )}
-        {deliveryDisplay && (
+
           <Link to={"/prices"}>
             <li>Prices and ways of delivery</li>
           </Link>
-        )}
+        </div>
       </ul>
       <ul className={styles.desktopList}>
         <span>Informations</span>

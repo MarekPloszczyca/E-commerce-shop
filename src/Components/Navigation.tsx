@@ -1,6 +1,6 @@
 import styles from "./Navigation.module.scss";
 import Logo from "./Logo";
-import IconMenu from "./MenuIcon";
+import MenuIcon from "./MenuIcon";
 import { CartOutline } from "react-ionicons";
 import { useState } from "react";
 import { Dispatch, SetStateAction } from "react";
@@ -72,16 +72,16 @@ export default function Navigation() {
   return (
     <nav className={styles.nav}>
       <div className={styles.upperNav}>
-        <IconMenu
+        <MenuIcon
           menu={() => {
             displayHandler(display, setDisplay);
           }}
         />
         <Logo />
-        <CartOutline />
+        <div className={styles.cartIcon}><CartOutline /></div>
       </div>
       <div className={display ? styles.shownNav : styles.hiddenNav}>
-        <div className={styles.innerNav}>
+        
           <NavigationOptions
             title={menuOptions.category.title}
             itemsArray={menuOptions.category.options}
@@ -110,7 +110,7 @@ export default function Navigation() {
             }}
             stateFunction={setInformations}
           />
-        </div>
+        
       </div>
     </nav>
   );

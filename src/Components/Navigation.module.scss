@@ -32,9 +32,23 @@
   transition: 0.4s;
   transition-timing-function: ease-in;
   box-shadow: inset 0px 11px 8px -10px #ccc;
-
+  -webkit-tap-highlight-color: transparent;
 }
 .shownNav {
   @extend .hiddenNav;
   height: 12.5rem;
+}
+@media (min-width: 1024px) {
+  .cartIcon svg{
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+  }
+
+  .hiddenNav {
+    font-size: 1.5rem;
+    width: 30rem;
+  }
+  .shownNav {
+    height: 17rem;
+  }
 }
