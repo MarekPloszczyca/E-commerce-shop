@@ -21,8 +21,10 @@ export default function CategoriesPage() {
       <Navigation />
       <SectionHeader
         text={
-          categoriesDetails[0].category.charAt(0).toUpperCase() +
-          categoriesDetails[0].category.slice(1)
+          categoriesDetails[0].category === "men's clothing"
+            ? "Clothing"
+            : categoriesDetails[0].category.charAt(0).toUpperCase() +
+              categoriesDetails[0].category.slice(1)
         }
       />
       <ProductsContainer>{products}</ProductsContainer>

@@ -13,6 +13,7 @@ import ProductPage from "./Routes/ProductPage.tsx";
 import CategoriesPage from "./Routes/CategoriesPage.tsx";
 import CategoriesLoader from "./Components/Functional/CategoriesLoader.tsx";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -39,6 +40,7 @@ const router = createBrowserRouter([
     loader: CategoriesLoader,
     errorElement: <ErrorPage />,
   },
+ 
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
