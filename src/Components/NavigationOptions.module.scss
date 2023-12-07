@@ -1,4 +1,4 @@
-ul {
+.list {
   display: flex;
   padding: 1rem;
   font-weight: bold;
@@ -6,6 +6,7 @@ ul {
 
   p {
     display: flex;
+    justify-content: space-between;
     svg {
       position: relative;
       right: 0.8rem;
@@ -14,10 +15,7 @@ ul {
       transition: 0.4s;
     }
   }
-  div {
-    position: relative;
-    right: 2rem;
-  }
+ 
 
   li {
     padding: 0 0.5rem 0.7rem 0.5rem;
@@ -29,17 +27,21 @@ ul {
 }
 
 .categoriesContainerHidden {
+  height: 0;
+  position: relative;
+  right: 2rem;
   overflow: hidden;
   transition: 0.4s;
   li {
     position: relative;
-    right: 10rem;
+    right: 20rem;
     transition: 0.4s;
   }
 }
 
 .categoriesContainer {
   @extend .categoriesContainerHidden;
+  height:20rem;
   li {
     right: 0;
   }
