@@ -7,6 +7,7 @@ interface Props {
   title: string;
   price: string;
   id: number;
+  rating:string;
 }
 
 export default function Product(props: Props) {

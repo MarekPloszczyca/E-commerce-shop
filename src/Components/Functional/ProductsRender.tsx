@@ -3,7 +3,13 @@ import Product from "../Product";
 
 export default function ProductsRender(array: [], state: any) {
   const products = array.map(
-    (product: { id: number; image: string; title: string; price: string }) => {
+    (product: {
+      id: number;
+      image: string;
+      title: string;
+      price: string;
+      rating: { rate: string };
+    }) => {
       return (
         <Product
           key={product.id}
@@ -11,6 +17,7 @@ export default function ProductsRender(array: [], state: any) {
           image={product.image}
           title={product.title}
           price={product.price}
+          rating={product.rating.rate}
         />
       );
     }

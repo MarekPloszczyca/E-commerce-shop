@@ -1,4 +1,19 @@
-.container{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+.radio {
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  padding: 3rem 1rem 0 0;
+
+  input {
+    margin-left: 1rem;
+    cursor: pointer;
+  }
+  label {
+    padding-left: 0.4rem;
+  }
 }
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
