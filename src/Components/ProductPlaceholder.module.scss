@@ -1,0 +1,46 @@
+.placeholder {
+  width: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(250, 236, 217, 1) 0%,
+    rgba(252, 246, 238, 1) 100%
+  );
+  height: 10rem;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+  animation-name: placeholder;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: placeholder;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+  transition: ease-in;
+  -webkit-transition: ease-in;
+}
+@keyframes placeholder {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 70%;
+  }
+  100% {
+    width: 0;
+  }
+}
+@-webkit-keyframes placeholder {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 70%;
+  }
+  100% {
+    width: 0;
+  }
+}
+@media (min-width: 1440px) {
+  .placeholder {
+    margin-top: 10rem;
+  }
+}

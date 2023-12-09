@@ -1,0 +1,14 @@
+.singleOption{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: "Open Sans", sans-serif;
+    padding:1rem 1rem;
+
+    span{
+        font-weight: bold;
+    }
+}
+.select{
+    padding:1rem 0;
+}

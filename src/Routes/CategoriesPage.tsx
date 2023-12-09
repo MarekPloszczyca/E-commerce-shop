@@ -7,6 +7,7 @@ import ScrollToTop from "../Components/Functional/ScrollToTop";
 import SectionHeader from "../Components/SectionHeader";
 import ProductsContainer from "../Components/Models/ProductsContainer";
 import ProductsRender from "../Components/Functional/ProductsRender";
+import FilterOptions from "../Components/FilterOptions";
 
 export default function CategoriesPage() {
   const { categoriesDetails }: any = useLoaderData();
@@ -27,6 +28,7 @@ export default function CategoriesPage() {
               categoriesDetails[0].category.slice(1)
         }
       />
+      <FilterOptions />
       <ProductsContainer>{products}</ProductsContainer>
       <Footer />
       <ScrollToTop />

@@ -6,6 +6,7 @@ import Navigation from "./Navigation";
 export default function ErrorPage() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const error: any = useRouteError();
+  console.log(error)
   return (
     <Fragment>
       <Navigation />
