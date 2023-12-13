@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Fragment } from "react";
 import styles from "./FilterOptions.module.scss";
 import SingleFilterOption from "./SingleFilterOption.tsx";
@@ -15,7 +16,12 @@ const rating = [
   { value: "desc", label: "Descending" },
 ];
 
-export default function FilterOptions(props: { clothing: boolean }) {
+interface Props {
+  clothing: boolean;
+  filter: (e:any, title:string) => void;
+}
+
+export default function FilterOptions(props: Props) {
   return (
     <Fragment>
       {props.clothing ? (
@@ -34,14 +40,19 @@ export default function FilterOptions(props: { clothing: boolean }) {
           <label htmlFor="women">Women</label>
         </div>
       ) : null}
-      <div className={styles.container}>
-        <SingleFilterOption title="Price" options={price} />
-        <SingleFilterOption title="Name" options={name} />
+      <form className={styles.container}>
+        <SingleFilterOption
+          title="Price"
+          options={price}
+          filter={props.filter}
+        />
+        <SingleFilterOption title="Name" options={name} filter={props.filter} />
         <SingleFilterOption
           title="Rating"
           options={rating}
+          filter={props.filter}
         ></SingleFilterOption>
-      </div>
+      </form>
     </Fragment>
   );
 }
