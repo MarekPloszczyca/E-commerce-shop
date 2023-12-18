@@ -49,6 +49,8 @@ export default function CategoriesPage() {
     rating: "Rating",
   });
 
+ 
+
   useEffect(() => {
     ProductsRender(categoriesDetails, setProducts);
   }, [categoriesDetails]);

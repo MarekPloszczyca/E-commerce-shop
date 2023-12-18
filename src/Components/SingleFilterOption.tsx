@@ -5,7 +5,9 @@ import Select from "react-select";
 interface Props {
   title: string;
   options: { value: string; label: string }[];
-  filter: (e: any, title:string) => void;
+  filter: (e: any, title: string) => void;
+  value: string | undefined;
+  valueChange: (title: string, choice: string | undefined) => void;
 }
 
 export default function SingleFilterOption(props: Props) {
@@ -15,9 +17,13 @@ export default function SingleFilterOption(props: Props) {
       <div className={styles.select}>
         <Select
           options={props.options}
-          placeholder={props.title}
+          value={{
+            value: props.title,
+            label: props.value === "" ? props.title : props.value,
+          }}
           isSearchable={false}
           onChange={(choice) => {
+            props.valueChange(props.title, choice?.label);
             return props.filter(choice, props.title);
           }}
         />
