@@ -9,6 +9,7 @@ export default function ProductsRender(array: [], state: any) {
       title: string;
       price: string;
       rating: { rate: string };
+      category: string;
     }) => {
       return (
         <Product
@@ -18,6 +19,7 @@ export default function ProductsRender(array: [], state: any) {
           title={product.title}
           price={product.price}
           rating={product.rating.rate}
+          category={product.category}
         />
       );
     }

@@ -19,6 +19,7 @@ const rating = [
 interface Props {
   clothing: boolean;
   filter: (e: any, title: string) => void;
+  radioHandler: (gender: string) => void;
 }
 
 export default function FilterOptions(props: Props) {
@@ -54,11 +55,30 @@ export default function FilterOptions(props: Props) {
             name="gender"
             value="all"
             defaultChecked
+            onClick={() => {
+              props.radioHandler("all");
+            }}
           />
           <label htmlFor="all">All</label>
-          <input type="radio" id="men" name="gender" value="men" />
+          <input
+            type="radio"
+            id="men"
+            name="gender"
+            value="men"
+            onClick={() => {
+              props.radioHandler("men");
+            }}
+          />
           <label htmlFor="men">Men</label>
-          <input type="radio" id="women" name="gender" value="women" />
+          <input
+            type="radio"
+            id="women"
+            name="gender"
+            value="women"
+            onClick={() => {
+              props.radioHandler("women");
+            }}
+          />
           <label htmlFor="women">Women</label>
         </div>
       ) : null}
