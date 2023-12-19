@@ -8,6 +8,7 @@ import SectionHeader from "../Components/SectionHeader";
 import ProductsContainer from "../Components/Models/ProductsContainer";
 import ProductsRender from "../Components/Functional/ProductsRender";
 import FilterOptions from "../Components/FilterOptions";
+import useSort from "../Components/Functional/useSort";
 
 const filterHandler = (state: any, action: any) => {
   switch (action.type) {
@@ -49,8 +50,6 @@ export default function CategoriesPage() {
     rating: "Rating",
   });
 
- 
-
   useEffect(() => {
     ProductsRender(categoriesDetails, setProducts);
   }, [categoriesDetails]);
@@ -64,6 +63,8 @@ export default function CategoriesPage() {
   useEffect(() => {
     products.length > 8 ? setClothing(true) : setClothing(false);
   }, [products.length]);
+
+  useSort(filterState, products, setProducts);
 
   const filter = (e: any, title: string) => {
     dispatch({ type: title, sort: e.value });
