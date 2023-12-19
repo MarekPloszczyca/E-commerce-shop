@@ -42,8 +42,9 @@ const filterHandler = (state: any, action: any) => {
 export default function CategoriesPage() {
   const { categoriesDetails }: any = useLoaderData();
   const [products, setProducts] = useState([]);
-  const [clothing, setClothing] = useState(false);
-  const radioInput = useRef(false);
+
+  const [clothingTitle, setClothingTitle] = useState("Clothing");
+  const [radioInput, setRadioInput] = useState(false);
   const initialProducts = useRef([]);
   const [filterState, dispatch] = useReducer(filterHandler, {
     price: "Price",
@@ -52,8 +53,7 @@ export default function CategoriesPage() {
   });
 
   const clothingHandler = () => {
-    radioInput.current = true;
-    setClothing(true);
+    setRadioInput(true);
   };
 
   useEffect(() => {
@@ -67,7 +67,9 @@ export default function CategoriesPage() {
   }, [products]);
 
   useEffect(() => {
-    products.length > 8 ? clothingHandler() : setClothing(false);
+    if (products.length > 8) {
+      clothingHandler();
+    }
   }, [products.length]);
 
   useSort(filterState, products, setProducts);
@@ -79,6 +81,7 @@ export default function CategoriesPage() {
   const radioHandler = (gender: string) => {
     if (gender === "all") {
       const products = initialProducts.current;
+      setClothingTitle("Clothing");
       return setProducts(products);
     }
     if (gender === "men") {
@@ -87,6 +90,7 @@ export default function CategoriesPage() {
           return product.category === "men's clothing";
         }
       );
+      setClothingTitle("Men's clothing");
       return ProductsRender(products, setProducts);
     }
     if (gender === "women") {
@@ -95,6 +99,7 @@ export default function CategoriesPage() {
           return product.category === "women's clothing";
         }
       );
+      setClothingTitle("Women's clothing");
       return ProductsRender(products, setProducts);
     }
   };
@@ -104,14 +109,14 @@ export default function CategoriesPage() {
       <Navigation />
       <SectionHeader
         text={
-          clothing
-            ? "Clothing"
+          radioInput
+            ? clothingTitle
             : categoriesDetails[0].category.charAt(0).toUpperCase() +
               categoriesDetails[0].category.slice(1)
         }
       />
       <FilterOptions
-        clothing={radioInput.current}
+        clothing={radioInput}
         filter={filter}
         radioHandler={radioHandler}
       />
