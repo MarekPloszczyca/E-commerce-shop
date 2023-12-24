@@ -42,9 +42,9 @@ const filterHandler = (state: any, action: any) => {
 export default function CategoriesPage() {
   const { categoriesDetails }: any = useLoaderData();
   const [products, setProducts] = useState([]);
-
   const [clothingTitle, setClothingTitle] = useState("Clothing");
   const [radioInput, setRadioInput] = useState(false);
+  const [radioClicked, setRadioClicked] = useState(false);
   const initialProducts = useRef([]);
   const [filterState, dispatch] = useReducer(filterHandler, {
     price: "Price",
@@ -52,25 +52,28 @@ export default function CategoriesPage() {
     rating: "Rating",
   });
 
-  const clothingHandler = () => {
-    setRadioInput(true);
-  };
-
   useEffect(() => {
     ProductsRender(categoriesDetails, setProducts);
+    setRadioClicked(false);
   }, [categoriesDetails]);
 
   useEffect(() => {
-    if (initialProducts.current.length <= 0) {
-      initialProducts.current = products;
+    if (radioClicked) {
+      return;
     }
-  }, [products]);
+    initialProducts.current = products;
+  }, [products, radioClicked]);
 
   useEffect(() => {
-    if (products.length > 8) {
-      clothingHandler();
+    if (products.length <= 0) {
+      return;
     }
-  }, [products.length]);
+    if (initialProducts.current.length > 8 || radioClicked) {
+      setRadioInput(true);
+    } else {
+      setRadioInput(false);
+    }
+  }, [products, radioClicked]);
 
   useSort(filterState, products, setProducts);
 
@@ -79,6 +82,7 @@ export default function CategoriesPage() {
   };
 
   const radioHandler = (gender: string) => {
+    setRadioClicked(true);
     if (gender === "all") {
       const products = initialProducts.current;
       setClothingTitle("Clothing");
