@@ -49,37 +49,44 @@ export default function FilterOptions(props: Props) {
     <Fragment>
       {props.clothing ? (
         <div className={styles.radio}>
-          <input
-            type="radio"
-            id="all"
-            name="gender"
-            value="all"
-            defaultChecked
-            onClick={() => {
-              props.radioHandler("all");
-            }}
-          />
-          <label htmlFor="all">All</label>
-          <input
-            type="radio"
-            id="men"
-            name="gender"
-            value="men"
-            onClick={() => {
-              props.radioHandler("men");
-            }}
-          />
-          <label htmlFor="men">Men</label>
-          <input
-            type="radio"
-            id="women"
-            name="gender"
-            value="women"
-            onClick={() => {
-              props.radioHandler("women");
-            }}
-          />
-          <label htmlFor="women">Women</label>
+          <label htmlFor="all">
+            All
+            <input
+              type="radio"
+              id="all"
+              name="gender"
+              value="all"
+              defaultChecked
+              onClick={() => {
+                props.radioHandler("all");
+              }}
+            />{" "}
+            <span className={styles.checkmark}></span>
+          </label>
+          <label htmlFor="men">
+            <input
+              type="radio"
+              id="men"
+              name="gender"
+              value="men"
+              onClick={() => {
+                props.radioHandler("men");
+              }}
+            />
+            Men <span className={styles.checkmark}></span>
+          </label>
+          <label htmlFor="women">
+            <input
+              type="radio"
+              id="women"
+              name="gender"
+              value="women"
+              onClick={() => {
+                props.radioHandler("women");
+              }}
+            />
+            Women <span className={styles.checkmark}></span>
+          </label>
         </div>
       ) : null}
       <form className={styles.container}>
