@@ -3,8 +3,8 @@
   flex-direction: column;
   background-color: #fcf6ee;
   padding: 2rem 1rem;
-  width:45rem;
-  margin:0 1rem;
+  width: 16rem;
+  margin: 0 1rem;
   span {
     font-weight: bold;
     padding: 1rem 0;
@@ -16,4 +16,9 @@
       color: red;
     }
   }
+}
+@media (min-width:1024px){
+    .review{
+        width:35rem;
+    }
 }

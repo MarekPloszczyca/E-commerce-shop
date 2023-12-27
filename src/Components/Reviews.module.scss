@@ -1,5 +1,5 @@
 .reviewsContainer {
-  padding: 10rem 0 5rem 0;
+  padding: 10rem 0 10rem 0;
   font-family: "Open Sans", sans-serif;
   font-size: 1.1rem;
   line-height: 1.4rem;
@@ -8,8 +8,7 @@
   overflow: hidden;
 }
 .innerContainer {
-  width: 500%;
-  display: flex;
+  display: inline-flex;
   position: relative;
   align-items: stretch;
   transition:1s;

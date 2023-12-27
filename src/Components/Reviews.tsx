@@ -1,5 +1,5 @@
 import styles from "./Reviews.module.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Review from "./Review";
 
 const reviews = [
@@ -32,19 +32,33 @@ export default function Reviews() {
     })
   );
   const [right, setRight] = useState(0);
+  const firstRender = useRef(false);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    setInterval(() => {
-      setRight((current) => {
-        return current + 3;
-      });
-    }, 1000);
-  }, []);
+    if (!firstRender.current) {
+      setInterval(() => {
+        setRight((current) => current + 50);
+      }, 1000);
+    }
+    setTimeout(() => {
+      setCount((current) => current + 1);
+      setReviewsRender([
+        ...reviewsRender,
+        <Review
+          key={count}
+          text={reviews[count % 5].text}
+          name={reviews[count % 5].name}
+        />,
+      ]);
+    }, 5500);
+    firstRender.current = true;
+  }, [reviewsRender, count]);
 
   return (
     <div className={styles.reviewsContainer}>
       <div className={styles.outerContainer}>
-        <div style={{ right: `${right}%` }} className={styles.innerContainer}>
+        <div style={{ right: `${right}px` }} className={styles.innerContainer}>
           {reviewsRender}
         </div>
       </div>
