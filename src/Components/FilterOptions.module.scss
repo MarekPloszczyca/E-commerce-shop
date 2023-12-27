@@ -33,6 +33,7 @@
   border-radius: 50%;
   background-color: rgb(238, 238, 238);
   margin: 0.5rem;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .checkmark:hover {
@@ -64,6 +65,9 @@
 }
 
 @media (min-width: 1024px) {
+  .radio {
+    font-size: 1.2rem;
+  }
   .container {
     grid-template-columns: repeat(3, 1fr);
     font-size: 1.2rem;

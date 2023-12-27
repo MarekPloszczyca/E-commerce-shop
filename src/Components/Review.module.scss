@@ -1,0 +1,19 @@
+.review {
+  display: flex;
+  flex-direction: column;
+  background-color: #fcf6ee;
+  padding: 2rem 1rem;
+  width:45rem;
+  margin:0 1rem;
+  span {
+    font-weight: bold;
+    padding: 1rem 0;
+  }
+  div {
+    position: relative;
+    right: 0.1rem;
+    svg {
+      color: red;
+    }
+  }
+}

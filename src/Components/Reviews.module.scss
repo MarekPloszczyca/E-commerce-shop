@@ -1,0 +1,17 @@
+.reviewsContainer {
+  padding: 10rem 0 5rem 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+}
+.outerContainer {
+  overflow: hidden;
+}
+.innerContainer {
+  width: 500%;
+  display: flex;
+  position: relative;
+  align-items: stretch;
+  transition:1s;
+  transition-timing-function: linear;
+}

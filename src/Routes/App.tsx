@@ -7,6 +7,7 @@ import PopularProducts from "../Components/PopularProducts";
 import About from "../Components/About";
 import Footer from "../Components/Footer";
 import ScrollToTop from "../Components/Functional/ScrollToTop";
+import Reviews from "../Components/Reviews";
 
 function App() {
   return (
@@ -16,9 +17,10 @@ function App() {
       <BriefInfo />
       <CategoriesGallery />
       <PopularProducts />
-      <About/>
-      <Footer/>
-      <ScrollToTop/>
+      <About />
+      <Reviews />
+      <Footer />
+      <ScrollToTop />
     </Fragment>
   );
 }

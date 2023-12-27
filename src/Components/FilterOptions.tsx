@@ -60,7 +60,7 @@ export default function FilterOptions(props: Props) {
               onClick={() => {
                 props.radioHandler("all");
               }}
-            />{" "}
+            />
             <span className={styles.checkmark}></span>
           </label>
           <label htmlFor="men">
