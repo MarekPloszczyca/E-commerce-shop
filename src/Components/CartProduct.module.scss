@@ -8,15 +8,11 @@
   img {
     width: 2rem;
   }
-  input{
-    width:1.9rem;
-    height:1.9rem;
+  input {
+    width: 1.9rem;
+    height: 1.9rem;
     text-align: center;
-    border:solid 0.1rem #e7e7e7;
-  }
-  svg{
-    position: relative;
-    left:0.5rem;
+    border: solid 0.1rem #e7e7e7;
   }
 }
 .description {
@@ -28,4 +24,14 @@
   span {
     font-weight: 600;
   }
+}
+.icon {
+  position: relative;
+  left: 0.5rem;
+  transition: 0.5s;
+}
+.clicked {
+  @extend .icon;
+  transform: rotate(180deg);
+  transition: 0.5s;
 }
