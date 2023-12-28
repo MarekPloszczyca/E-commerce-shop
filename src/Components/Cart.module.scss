@@ -1,0 +1,17 @@
+.cartContainer {
+  h5 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "Tenor sans", sans-serif;
+    font-weight: 100;
+    padding: 10rem 1rem;
+    font-size: 2rem;
+    img{
+        width:4rem;
+        padding-bottom:1rem;
+    }
+  }
+}

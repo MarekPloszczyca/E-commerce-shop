@@ -34,6 +34,7 @@ export default function ProductPage() {
     <Fragment>
       <Navigation />
       <SingleProduct
+        id={productDetails.id}
         image={productDetails.image}
         title={productDetails.title}
         description={productDetails.description}

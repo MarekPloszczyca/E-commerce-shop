@@ -7,8 +7,8 @@ interface Props {
   title: string;
   price: string;
   id: number;
-  rating: string;
-  category: string;
+  rating?: string;
+  category?: string;
 }
 
 export default function Product(props: Props) {
@@ -18,7 +18,14 @@ export default function Product(props: Props) {
         <img src={props.image} /> <h6>{props.title}</h6>
         <p>{`${Math.floor(Number(props.price))},99 PLN`}</p>
       </Link>
-      <AddButton />
+      <AddButton
+        product={{
+          id: props.id,
+          img: props.image,
+          title: props.title,
+          price: `${Math.floor(Number(props.price))},99 PLN`,
+        }}
+      />
     </div>
   );
 }

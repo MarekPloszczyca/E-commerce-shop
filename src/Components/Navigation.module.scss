@@ -38,8 +38,12 @@
   @extend .hiddenNav;
   height: 12.5rem;
 }
+.hidden{
+  visibility: hidden;
+  pointer-events: none;
+}
 @media (min-width: 1024px) {
-  .cartIcon svg{
+  .cartIcon svg {
     width: 2.5rem !important;
     height: 2.5rem !important;
   }

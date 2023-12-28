@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-bottom: solid 0.01rem #d5d5d5;
+  img {
+    width: 2rem;
+  }
+  input{
+    width:1.9rem;
+    height:1.9rem;
+    text-align: center;
+    border:solid 0.1rem #e7e7e7;
+  }
+  svg{
+    position: relative;
+    left:0.5rem;
+  }
+}
+.description {
+  padding: 0.5rem 2rem 0.5rem 1rem;
+  .title {
+    padding-bottom: 0.4rem;
+    color: #255841;
+  }
+  span {
+    font-weight: 600;
+  }
+}

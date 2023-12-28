@@ -4,6 +4,7 @@ import MenuIcon from "./MenuIcon";
 import { CartOutline } from "react-ionicons";
 import { useState } from "react";
 import { Dispatch, SetStateAction } from "react";
+import { Link } from "react-router-dom";
 import NavigationOptions from "./NavigationOptions";
 
 const menuOptions = {
@@ -56,7 +57,7 @@ const menuOptions = {
   },
 };
 
-export default function Navigation() {
+export default function Navigation(props: { visible?: boolean }) {
   const [display, setDisplay] = useState(false);
   const [categories, setCategories] = useState(false);
   const [informations, setInformations] = useState(false);
@@ -78,39 +79,42 @@ export default function Navigation() {
           }}
         />
         <Logo />
-        <div className={styles.cartIcon}><CartOutline /></div>
+
+        <Link to="/cart" className={props.visible ? styles.hidden : undefined}>
+          <div className={styles.cartIcon}>
+            <CartOutline />
+          </div>
+        </Link>
       </div>
       <div className={display ? styles.shownNav : styles.hiddenNav}>
-        
-          <NavigationOptions
-            title={menuOptions.category.title}
-            itemsArray={menuOptions.category.options}
-            categories={categories}
-            displayHandler={() => {
-              displayHandler(categories, setCategories);
-            }}
-            stateFunction={setCategories}
-          />
+        <NavigationOptions
+          title={menuOptions.category.title}
+          itemsArray={menuOptions.category.options}
+          categories={categories}
+          displayHandler={() => {
+            displayHandler(categories, setCategories);
+          }}
+          stateFunction={setCategories}
+        />
 
-          <NavigationOptions
-            title={menuOptions.delivery.title}
-            itemsArray={menuOptions.delivery.options}
-            categories={delivery}
-            displayHandler={() => {
-              displayHandler(delivery, setDelivery);
-            }}
-            stateFunction={setDelivery}
-          />
-          <NavigationOptions
-            title={menuOptions.informations.title}
-            itemsArray={menuOptions.informations.options}
-            categories={informations}
-            displayHandler={() => {
-              displayHandler(informations, setInformations);
-            }}
-            stateFunction={setInformations}
-          />
-        
+        <NavigationOptions
+          title={menuOptions.delivery.title}
+          itemsArray={menuOptions.delivery.options}
+          categories={delivery}
+          displayHandler={() => {
+            displayHandler(delivery, setDelivery);
+          }}
+          stateFunction={setDelivery}
+        />
+        <NavigationOptions
+          title={menuOptions.informations.title}
+          itemsArray={menuOptions.informations.options}
+          categories={informations}
+          displayHandler={() => {
+            displayHandler(informations, setInformations);
+          }}
+          stateFunction={setInformations}
+        />
       </div>
     </nav>
   );

@@ -75,7 +75,21 @@ export default function Reviews() {
       }}
     >
       <div className={styles.outerContainer}>
-        <div style={{ right: `${right}px` }} className={styles.innerContainer}>
+        <div
+          style={{ right: `${right}px` }}
+          className={styles.innerContainer}
+          onMouseEnter={() => {
+            setTimeout(() => {
+              clearInterval(carousel);
+            }, 500);
+          }}
+          onMouseLeave={() => {
+            const interval = setInterval(() => {
+              setRight((current) => current + 50);
+            }, 1000);
+            setCarousel(interval);
+          }}
+        >
           {reviewsRender}
         </div>
       </div>

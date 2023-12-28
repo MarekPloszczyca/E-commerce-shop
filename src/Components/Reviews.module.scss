@@ -1,8 +1,12 @@
 .reviewsContainer {
+
   padding: 10rem 0 10rem 0;
   font-family: "Open Sans", sans-serif;
   font-size: 1.1rem;
   line-height: 1.4rem;
+  -webkit-user-select: none;
+  -ms-user-select: none; 
+  user-select: none;
 }
 .outerContainer {
   overflow: hidden;
