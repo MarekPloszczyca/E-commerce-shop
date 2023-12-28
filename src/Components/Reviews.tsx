@@ -34,13 +34,20 @@ export default function Reviews() {
   const [right, setRight] = useState(0);
   const firstRender = useRef(false);
   const [count, setCount] = useState(0);
+  const [carousel, setCarousel] = useState(0);
 
   useEffect(() => {
     if (!firstRender.current) {
-      setInterval(() => {
+      const interval = setInterval(() => {
         setRight((current) => current + 50);
       }, 1000);
+      setCarousel(interval);
     }
+
+    firstRender.current = true;
+  }, [firstRender]);
+
+  useEffect(() => {
     setTimeout(() => {
       setCount((current) => current + 1);
       setReviewsRender([
@@ -52,11 +59,21 @@ export default function Reviews() {
         />,
       ]);
     }, 5500);
-    firstRender.current = true;
-  }, [reviewsRender, count]);
+  }, [count, reviewsRender]);
 
   return (
-    <div className={styles.reviewsContainer}>
+    <div
+      className={styles.reviewsContainer}
+      onTouchStart={() => {
+        clearInterval(carousel);
+      }}
+      onTouchEnd={() => {
+        const interval = setInterval(() => {
+          setRight((current) => current + 50);
+        }, 1000);
+        setCarousel(interval);
+      }}
+    >
       <div className={styles.outerContainer}>
         <div style={{ right: `${right}px` }} className={styles.innerContainer}>
           {reviewsRender}
