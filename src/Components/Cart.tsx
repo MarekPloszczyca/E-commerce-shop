@@ -6,7 +6,7 @@ import EmptyCart from "../Assets/Cart/Cart.gif";
 import CartProduct from "./CartProduct";
 import CartCost from "./CartCost";
 
-export default function Cart() {
+export default function Cart(props: { reminder: (boolean : boolean) => void }) {
   const [products, setProducts] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const cart = useSelector((state: { products: [] }) => state.products);
@@ -61,7 +61,9 @@ export default function Cart() {
           products
         </h5>
       )}
-      {products.length !== 0 && <CartCost total={totalPrice} />}
+      {products.length !== 0 && (
+        <CartCost total={totalPrice} reminder={props.reminder} />
+      )}
     </div>
   );
 }

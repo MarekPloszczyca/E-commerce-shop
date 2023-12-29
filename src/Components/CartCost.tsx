@@ -1,7 +1,18 @@
+import { useState } from "react";
 import styles from "./CartCost.module.scss";
 import { ChevronForwardOutline } from "react-ionicons";
 
-export default function CartCost(props: { total: number }) {
+export default function CartCost(props: {
+  total: number;
+  reminder: (boolean: boolean) => void;
+}) {
+  const [rulesAccepted, setRulesAccepted] = useState(false);
+  const [accepted, setAccepted] = useState(true);
+
+  const acceptationHandler = () => {
+    rulesAccepted ? setRulesAccepted(false) : setRulesAccepted(true);
+  };
+
   return (
     <div className={styles.costContainer}>
       <h3>
@@ -45,15 +56,31 @@ export default function CartCost(props: { total: number }) {
         </p>
       </div>
       <div className={styles.confirmation}>
-        <input type="checkbox" id="rules" name="rules" />
-        <span className={styles.checkmark}></span>
+        <input
+          type="checkbox"
+          id="rules"
+          name="rules"
+          onClick={() => {
+            acceptationHandler();
+            props.reminder(false);
+            setAccepted(true);
+          }}
+        />
+        <span className={accepted ? styles.checkmark : styles.warning}></span>
         <label htmlFor="rules">
           I confirm that placing an order involves an obligation to pay.
         </label>
       </div>
       <div className={styles.checkoutButton}>
-        <button>
-          CHECK OUT{" "}
+        <button
+          onClick={() => {
+            if (!rulesAccepted) {
+              props.reminder(true);
+              return setAccepted(false);
+            }
+          }}
+        >
+          CHECK OUT
           <span>
             <ChevronForwardOutline />
           </span>
