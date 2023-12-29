@@ -31,6 +31,7 @@ export default function Cart() {
         }
       );
       setProducts(productsArray);
+      console.log(cart);
     }
   }, [cart]);
 

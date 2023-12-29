@@ -105,8 +105,8 @@ export default function SingleProduct(props: Props) {
               img: props.image,
               title: props.title,
               price: `${Math.floor(Number(props.price))},99 PLN`,
+              quantity: Number(count),
             }}
-            quantity={Number(count)}
           />
         </div>
       </div>

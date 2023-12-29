@@ -24,6 +24,7 @@ export default function Product(props: Props) {
           img: props.image,
           title: props.title,
           price: `${Math.floor(Number(props.price))},99 PLN`,
+          quantity: 1,
         }}
       />
     </div>

@@ -9,8 +9,8 @@ export default function AddButton(props: {
     img: string;
     title: string;
     price: string;
+    quantity: number;
   };
-  quantity?: number;
 }) {
   const dispatch = useDispatch();
 
@@ -18,11 +18,9 @@ export default function AddButton(props: {
     <button
       className={styles.add}
       onClick={() => {
-        if (props.quantity) {
-          for (let i = 0; i < props.quantity; i++) {
-            dispatch(add(props.product));
-          }
-        } else return dispatch(add(props.product));
+        for (let i = 0; i < props.product.quantity; i++) {
+          dispatch(add(props.product));
+        }
       }}
     >
       <AddCircleOutline />
