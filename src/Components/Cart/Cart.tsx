@@ -1,7 +1,13 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
 interface cartState {
-  products: { id: number; img: string; title: string; price: string }[];
+  products: {
+    id: number;
+    img: string;
+    title: string;
+    price: string;
+    quantity: number;
+  }[];
 }
 
 const initialState: cartState = {
@@ -13,7 +19,17 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     add: (state, action) => {
-      state.products.push(action.payload);
+      const products = state.products;
+      products.push(action.payload);
+      products.forEach((product) => {
+        const index = products.indexOf(product);
+        for (let i = index + 1; i <= products.length - 1; i++) {
+          if (product.id === products[i].id) {
+            product.quantity = product.quantity + products[i].quantity;
+            products.splice(i, 1);
+          }
+        }
+      });
     },
     decremented: (state) => {
       state.products.push();

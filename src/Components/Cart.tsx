@@ -17,6 +17,7 @@ export default function Cart() {
           img: string;
           title: string;
           price: string;
+          quantity: number;
         }) => {
           return (
             <CartProduct
@@ -25,7 +26,7 @@ export default function Cart() {
               image={product.img}
               title={product.title}
               price={product.price}
-              quantity={1}
+              quantity={product.quantity}
             />
           );
         }
