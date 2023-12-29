@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./CartCost.module.scss";
 import { ChevronForwardOutline } from "react-ionicons";
+import { Link } from "react-router-dom";
 
 export default function CartCost(props: {
   total: number;
@@ -72,20 +73,31 @@ export default function CartCost(props: {
         </label>
       </div>
       <div className={styles.checkoutButton}>
-        <button
-          onClick={() => {
-            if (!rulesAccepted) {
+        {!rulesAccepted && (
+          <button
+            onClick={() => {
               props.reminder(true);
               return setAccepted(false);
-            }
-          }}
-        >
-          CHECK OUT
-          <span>
+            }}
+          >
+            CHECK OUT
+            <span>
+              <ChevronForwardOutline />
+            </span>
             <ChevronForwardOutline />
-          </span>
-          <ChevronForwardOutline />
-        </button>
+          </button>
+        )}
+        {rulesAccepted && (
+          <Link to="/" className={styles.link}>
+            <button>
+              CHECK OUT
+              <span>
+                <ChevronForwardOutline />
+              </span>
+              <ChevronForwardOutline />
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );

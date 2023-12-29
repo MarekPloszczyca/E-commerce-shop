@@ -12,16 +12,26 @@
   background-color: #255841;
   animation-name: display;
   animation-duration: 0.5s;
+  -webkit-animation-name: display;
+  -webkit-animation-duration: 0.5s;
   p {
     padding: 1rem 2rem 1rem 1rem;
   }
   svg {
     width: 3rem;
     height: 3rem;
-    color: #ffffff;
+    color: #ffffff !important;
   }
 }
 @keyframes display {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes display {
   from {
     opacity: 0;
   }
