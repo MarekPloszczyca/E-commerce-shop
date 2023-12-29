@@ -106,6 +106,7 @@ export default function SingleProduct(props: Props) {
               title: props.title,
               price: `${Math.floor(Number(props.price))},99 PLN`,
             }}
+            quantity={Number(count)}
           />
         </div>
       </div>

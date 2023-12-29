@@ -4,7 +4,13 @@ import { add } from "./Cart/Cart";
 import { useDispatch } from "react-redux";
 
 export default function AddButton(props: {
-  product: { id: number; img: string; title: string; price: string };
+  product: {
+    id: number;
+    img: string;
+    title: string;
+    price: string;
+  };
+  quantity?: number;
 }) {
   const dispatch = useDispatch();
 
@@ -12,7 +18,11 @@ export default function AddButton(props: {
     <button
       className={styles.add}
       onClick={() => {
-        dispatch(add(props.product));
+        if (props.quantity) {
+          for (let i = 0; i < props.quantity; i++) {
+            dispatch(add(props.product));
+          }
+        } else return dispatch(add(props.product));
       }}
     >
       <AddCircleOutline />
