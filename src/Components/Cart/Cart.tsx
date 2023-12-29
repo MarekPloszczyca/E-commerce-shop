@@ -21,23 +21,43 @@ const cartSlice = createSlice({
     add: (state, action) => {
       const products = state.products;
       products.push(action.payload);
-      products.forEach((product) => {
+      products.map((product) => {
         const index = products.indexOf(product);
         for (let i = index + 1; i <= products.length - 1; i++) {
           if (product.id === products[i].id) {
-            product.quantity = product.quantity + products[i].quantity;
+            if (product.quantity < 99) {
+              product.quantity = product.quantity + products[i].quantity;
+            }
+
             products.splice(i, 1);
           }
         }
       });
     },
-    decremented: (state) => {
-      state.products.push();
+    remove: (state, action) => {
+      const products = state.products;
+      for (const product of products) {
+        if (product.id === action.payload) {
+          if (product.quantity === 1) {
+            return;
+          }
+          product.quantity--;
+        }
+      }
+    },
+    deleteHandler: (state, action) => {
+      const products = state.products;
+      for (const product of products) {
+        if (product.id === action.payload) {
+          products.splice(products.indexOf(product), 1);
+  
+        }
+      }
     },
   },
 });
 
-export const { add, decremented } = cartSlice.actions;
+export const { add, remove, deleteHandler } = cartSlice.actions;
 export const store = configureStore({
   reducer: cartSlice.reducer,
 });

@@ -32,8 +32,8 @@ export default function Cart() {
         }
       );
       setProducts(productsArray);
-      console.log(cart);
-    }
+    } else setProducts([]);
+    console.log(cart);
   }, [cart]);
 
   return (
