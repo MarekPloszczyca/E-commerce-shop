@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import EmptyCart from "../Assets/Cart/Cart.gif";
 import CartProduct from "./CartProduct";
+import CartCost from "./CartCost";
 
 export default function Cart() {
   const [products, setProducts] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
   const cart = useSelector((state: { products: [] }) => state.products);
 
   useEffect(() => {
@@ -32,8 +34,21 @@ export default function Cart() {
         }
       );
       setProducts(productsArray);
+      let cost = 0;
+      productsArray.forEach(
+        (product: { props: { price: string; quantity: number } }) => {
+          const price = Number(
+            product.props.price
+              .split(" ")
+              .splice(0, 1)
+              .toString()
+              .replace(",", ".")
+          );
+          cost += price * product.props.quantity;
+        }
+      );
+      setTotalPrice(cost);
     } else setProducts([]);
-    console.log(cart);
   }, [cart]);
 
   return (
@@ -46,6 +61,7 @@ export default function Cart() {
           products
         </h5>
       )}
+      {products.length !== 0 && <CartCost total={totalPrice} />}
     </div>
   );
 }

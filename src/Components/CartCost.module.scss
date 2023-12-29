@@ -1,0 +1,103 @@
+.costContainer {
+  font-family: "Tenor sans", sans-serif;
+  padding: 3rem 1rem;
+  margin: 4rem 0.5rem;
+  background-color: #fcf6ee;
+  h3 {
+    font-size: 2rem;
+  }
+  span {
+    color: #255841;
+    font-weight: bold;
+  }
+  p {
+    padding-top: 1rem;
+  }
+  .cost {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    border-bottom: solid 0.1rem #d5d5d5;
+    div {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4rem;
+  }
+  .confirmation {
+    padding-top: 2rem;
+    display: flex;
+    align-items: center;
+    input {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+    label {
+      padding-left: 0.5rem;
+    }
+  }
+}
+.checkmark {
+  display: block;
+  cursor: pointer;
+  height: 1rem;
+  min-width: 1rem;
+  background-color: #ffffff;
+  -webkit-tap-highlight-color: transparent;
+  border: solid 0.01rem #d5d5d5;
+  border-radius: 0.2rem;
+
+  &::after {
+    content: "\2713";
+    display: none;
+    position: relative;
+    left: 0.2rem;
+    font-size: 0.7rem;
+    color: #ffffff;
+  }
+}
+.confirmation input:checked ~ .checkmark {
+  background-color: #255841;
+  &::after {
+    display: block;
+  }
+}
+.checkoutButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3rem;
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-family: "Tenor sans", sans-serif;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #255841;
+    font-size: 1rem;
+    padding: 1rem;
+    border: none;
+    svg {
+      position: relative;
+      top: 0.1rem;
+      right:0.6rem;
+      color: #ffffff;
+    }
+    span {
+      position: relative;
+      left: 0.8rem;
+    }
+  }
+}
