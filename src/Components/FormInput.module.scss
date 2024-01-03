@@ -1,0 +1,48 @@
+.container {
+  position: relative;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  input {
+    width: 100%;
+    padding: 1rem;
+    margin: 0.3rem 0;
+    text-align: bottom;
+    border: solid 0.1rem #efefef;
+    outline-color: #255841;
+    border-radius: 0.5rem;
+    transition: 0.3s;
+    &::placeholder {
+      font-family: "Open Sans", sans-serif;
+    }
+  }
+}
+
+.description {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 1.1rem;
+  font-size: 0.8rem;
+  color: #ababab;
+}
+.resized {
+  @extend .container;
+  input {
+    padding-top: 1.5rem;
+    transition: 0.3s;
+  }
+}
+.warning {
+  position: absolute;
+  right: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  background-color: #f77e7e;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+}
+.emailWarning{
+    @extend .warning;
+    top:4.5rem;
+}

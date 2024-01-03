@@ -15,6 +15,7 @@ import ProductPage from "./Routes/ProductPage.tsx";
 import CategoriesPage from "./Routes/CategoriesPage.tsx";
 import CategoriesLoader from "./Components/Functional/CategoriesLoader.tsx";
 import UserCart from "./Routes/UserCart.tsx";
+import Checkout from "./Routes/Checkout.tsx";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   { path: "/cart", element: <UserCart />, errorElement: <ErrorPage /> },
+  { path: "/checkout", element: <Checkout />, errorElement: <ErrorPage /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

@@ -89,7 +89,7 @@ export default function CartCost(props: {
           </button>
         )}
         {rulesAccepted && (
-          <Link to="/" className={styles.link}>
+          <Link to="/checkout" className={styles.link}>
             <button>
               CHECK OUT
               <span>
