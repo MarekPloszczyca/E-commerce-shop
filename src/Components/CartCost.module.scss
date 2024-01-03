@@ -43,15 +43,18 @@
       width: 0;
     }
     label {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
       padding-left: 0.5rem;
     }
   }
 }
 .checkmark {
   display: block;
-  cursor: pointer;
   height: 1rem;
   min-width: 1rem;
+  margin-right: 0.4rem;
   background-color: #ffffff;
   -webkit-tap-highlight-color: transparent;
   border: solid 0.01rem #d5d5d5;
@@ -66,7 +69,7 @@
     color: #ffffff;
   }
 }
-.confirmation input:checked ~ .checkmark {
+.confirmation input:checked ~ label .checkmark {
   background-color: #255841;
   &::after {
     display: block;
@@ -92,7 +95,7 @@
     svg {
       position: relative;
       top: 0.1rem;
-      right:0.6rem;
+      right: 0.6rem;
       color: #ffffff;
     }
     span {
@@ -101,10 +104,55 @@
     }
   }
 }
-.link{
-  width:100%;
+.link {
+  width: 100%;
 }
-.warning{
+.warning {
   @extend .checkmark;
-  border-color: red !important;
+  border-color: red;
+}
+@media (min-width: 768px) {
+  .costContainer {
+    font-size: 1.3rem;
+    h3 {
+      font-size: 2.2rem;
+    }
+  }
+  .checkoutButton button {
+    font-size: 1.2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .checkoutButton button {
+    cursor: pointer;
+    &:hover svg {
+      animation-name: move;
+      animation-duration: 1s;
+      -webkit-animation-name: move;
+      -webkit-animation-duration: 1s;
+    }
+  }
+
+  @keyframes move {
+    0% {
+      right: 0.6rem;
+    }
+    50% {
+      right: 0;
+    }
+    100% {
+      right: 0.6rem;
+    }
+  }
+}
+@-webkit-keyframes move {
+  0% {
+    right: 0.6rem;
+  }
+  50% {
+    right: 0;
+  }
+  100% {
+    right: 0.6rem;
+  }
 }

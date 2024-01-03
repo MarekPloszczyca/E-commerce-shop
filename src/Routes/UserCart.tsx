@@ -1,4 +1,5 @@
 import { Fragment, useState } from "react";
+import styles from "./UserCart.module.scss";
 import Navigation from "../Components/Navigation";
 import Footer from "../Components/Footer";
 import ScrollToTop from "../Components/Functional/ScrollToTop";
@@ -9,8 +10,8 @@ import Reminder from "../Components/Reminder";
 export default function UserCart() {
   const [reminder, setReminder] = useState(false);
 
-  const reminderHandler = (boolean : boolean) => {
-    setReminder(boolean)
+  const reminderHandler = (boolean: boolean) => {
+    setReminder(boolean);
   };
 
   return (
@@ -18,7 +19,9 @@ export default function UserCart() {
       <Navigation visible={true} />
       {reminder && <Reminder />}
       <SectionHeader text="Your cart" />
-      <Cart reminder={reminderHandler} />
+      <div className={styles.container}>
+        <Cart reminder={reminderHandler} />
+      </div>
       <Footer />
       <ScrollToTop />
     </Fragment>

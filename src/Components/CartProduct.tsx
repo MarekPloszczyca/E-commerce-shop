@@ -34,13 +34,49 @@ export default function CartProduct(props: Props) {
             <span>{props.price}</span>
           </p>
         </div>
+        <div></div>
+        <div className={styles.buttons}><div className={styles.desktopButton}>
+          <button
+            onClick={() => {
+              dispatch(remove(props.id));
+            }}
+          >
+            <RemoveOutline />
+          </button>
+        </div>
         <input value={props.quantity} readOnly></input>
+        <div className={styles.desktopButton}>
+          <button
+            onClick={() => {
+              dispatch(
+                add({
+                  id: props.id,
+                  img: props.image,
+                  title: props.title,
+                  price: `${Math.floor(Number(props.price))},99 PLN`,
+                  quantity: 1,
+                })
+              );
+            }}
+          >
+            <AddOutline />
+          </button>
+        </div></div>
         <div className={quantityOptions ? styles.clicked : styles.icon}>
           <CaretDownOutline
             color="#255841"
             width="1rem"
             onClick={optionsHandler}
           />
+        </div>
+        <div className={styles.desktopButton}>
+          <button
+            onClick={() => {
+              dispatch(deleteHandler(props.id));
+            }}
+          >
+            <CloseOutline />
+          </button>
         </div>
       </div>
       {quantityOptions && (

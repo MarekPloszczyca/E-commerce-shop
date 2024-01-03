@@ -17,6 +17,22 @@
     outline: none;
   }
 }
+.desktopButton {
+  display: none;
+  button {
+    width: 2.1rem;
+    height: 2.1rem;
+    text-align: center;
+    background-color: #ffffff;
+    outline-color: #255841;
+    border: solid 0.1rem #e7e7e7;
+    svg {
+      color: #255841;
+      position: relative;
+      top: 0.1rem;
+    }
+  }
+}
 .description {
   padding: 0.5rem 2rem 0.5rem 1rem;
   width: 50%;
@@ -65,5 +81,34 @@
     font-family: "Tenor Sans", sans-serif;
     font-size: 0.8rem;
     padding-left: 0.3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .options,
+  .icon {
+    display: none;
+  }
+  .desktopButton {
+    display: block;
+  }
+  .buttons {
+    display: flex;
+  }
+  .container {
+    img {
+      width: 4rem;
+    }
+  }
+  .description {
+    font-size: 1.2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .desktopButton button {
+    cursor: pointer;
+    &:hover {
+      background-color: #efefef;
+    }
   }
 }

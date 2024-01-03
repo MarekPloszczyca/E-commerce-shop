@@ -67,8 +67,9 @@ export default function CartCost(props: {
             setAccepted(true);
           }}
         />
-        <span className={accepted ? styles.checkmark : styles.warning}></span>
+        
         <label htmlFor="rules">
+        <span className={accepted ? styles.checkmark : styles.warning}></span>
           I confirm that placing an order involves an obligation to pay.
         </label>
       </div>
