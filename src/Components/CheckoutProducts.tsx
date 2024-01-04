@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 export default function CheckoutProducts() {
   const [products, setProducts] = useState<JSX.Element[]>([]);
   const [productsNumber, setProductsNumber] = useState(0);
+  const [discount, setDiscount] = useState("");
+  const [validate, setValidate] = useState(true);
   const cart = useSelector((state: { products: [] }) => state.products);
 
   useEffect(() => {
@@ -18,7 +20,7 @@ export default function CheckoutProducts() {
         img: string;
         title: string;
         quantity: number;
-        price:string;
+        price: string;
       }) => {
         return (
           <SingleCheckoutProduct
@@ -49,6 +51,37 @@ export default function CheckoutProducts() {
     <div className={styles.checkoutProducts}>
       <h5>{`Order summary (${productsNumber})`}</h5>
       {products}
+      <div className={styles.discount}>
+        <input
+          type="text"
+          placeholder="Discount code"
+          value={discount}
+          onClick={() => {
+            setValidate(true);
+          }}
+          onChange={(event) => {
+            setDiscount(event.target.value);
+          }}
+        />
+
+        <button
+          className={discount !== "" ? styles.discountButton : undefined}
+          type="button"
+          onClick={() => {
+            if (discount === "") {
+              return;
+            }
+            setValidate(false);
+            setDiscount("");
+          }}
+        >
+          Apply
+        </button>
+      </div>
+      {!validate && <span>Please enter a valid discount code</span>}
+      <div className={styles.total}>
+        <p>Total:</p> <p>123 PLN</p>
+      </div>
     </div>
   );
 }
