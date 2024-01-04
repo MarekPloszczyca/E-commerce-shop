@@ -25,7 +25,7 @@ export default function SingleCheckoutProduct(props: Props) {
         <p>{props.title}</p>
       </div>
       <div className={styles.quantity}>{props.quantity}</div>
-      <p className={styles.price}>{`${total} PLN`}</p>
+      <p className={styles.price}>{`${total.toFixed(2)} PLN`}</p>
     </div>
   );
 }

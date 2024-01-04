@@ -68,7 +68,6 @@ export default function CheckoutForm() {
     },
     validate,
     onSubmit: (values) => {
-      console.log(values);
       values.firstName = "";
       values.lastName = "";
       values.address = "";
@@ -153,7 +152,7 @@ export default function CheckoutForm() {
         error={formik.errors.email}
       />
       <CheckoutProducts />
-      <button type="submit">Order</button>
+    
     </form>
   );
 }

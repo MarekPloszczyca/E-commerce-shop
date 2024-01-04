@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 export default function CheckoutProducts() {
   const [products, setProducts] = useState<JSX.Element[]>([]);
   const [productsNumber, setProductsNumber] = useState(0);
+  const [productsPrice, setProductsPrice] = useState(0);
   const [discount, setDiscount] = useState("");
   const [validate, setValidate] = useState(true);
   const cart = useSelector((state: { products: [] }) => state.products);
@@ -38,13 +39,23 @@ export default function CheckoutProducts() {
 
   useEffect(() => {
     let number = 0;
+    let price = 0;
     if (products.length === 0) {
       return;
     }
     for (const product of products) {
       number += product.props.quantity;
+      price +=
+        Number(
+          product.props.price
+            .split(" ")
+            .splice(0, 1)
+            .toString()
+            .replace(",", ".")
+        ) * product.props.quantity;
     }
     setProductsNumber(number);
+    setProductsPrice(price);
   }, [products]);
 
   return (
@@ -80,8 +91,17 @@ export default function CheckoutProducts() {
       </div>
       {!validate && <span>Please enter a valid discount code</span>}
       <div className={styles.total}>
-        <p>Total:</p> <p>123 PLN</p>
+        <p>Total:</p>{" "}
+        <p>{`${
+          productsPrice < 150
+            ? (productsPrice + 10).toFixed(2)
+            : productsPrice.toFixed(2)
+        } PLN`}</p>
+        <span className={styles.deliveryPrice}>
+          {productsPrice < 150 &&`(Including 10 PLN delivery price)`}
+        </span>
       </div>
+      <button type="submit">Order</button>
     </div>
   );
 }
