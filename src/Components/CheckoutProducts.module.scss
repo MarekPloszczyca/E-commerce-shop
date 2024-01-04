@@ -1,14 +1,14 @@
 .checkoutProducts {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border: solid 0.1rem #efefef;
   padding: 1rem 0.5rem;
   margin: 4rem 0;
   h5 {
     font-family: "Open Sans", sans-serif;
     text-align: start;
-    width:100%;
+    width: 100%;
     font-size: 1.2rem;
     padding-bottom: 1rem;
   }
@@ -16,7 +16,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width:100%;
+    width: 100%;
     font-family: "Open Sans", sans-serif;
     border-top: solid 0.1rem #efefef;
     padding-top: 2rem;
@@ -29,7 +29,7 @@
       border-radius: 0.5rem;
     }
     button {
-        width: 30%;
+      width: 30%;
       padding: 0.9rem;
       margin: 0;
       margin-left: 0.5rem;
@@ -37,32 +37,48 @@
       background-color: #efefef;
       color: #000;
     }
-   
   }
   .total {
     display: flex;
-    align-items: center ;
-    justify-content: space-between ;
+    align-items: center;
+    justify-content: space-between;
     position: relative;
-    width:100%;
+    width: 100%;
     font-size: 1.5rem;
     padding: 2rem 0 1.5rem 0;
     font-weight: bold;
   }
-  span{
+  span {
     position: relative;
-    top:0.35rem;
-    color:red;
-}
-.deliveryPrice{
+    top: 0.35rem;
+    color: red;
+  }
+  .deliveryPrice {
     position: absolute;
-    top:4rem;
+    top: 4rem;
     font-size: 0.7rem;
-    width:45%;
-    color:#5c5c5c;
-}
+    width: 45%;
+    color: #5c5c5c;
+  }
 }
 .discountButton {
   color: #ffffff !important;
   background-color: #255841 !important;
+}
+@media (min-width: 768px) {
+  .checkoutProducts {
+    width:80%;
+    margin: 0;
+    padding:2rem ;
+    background-color: #ffffff;
+  }
+}
+
+@media (min-width:1024px){
+    .discount button:hover{
+        filter: brightness(90%);
+    }
+    .discountButton:hover{
+        filter: brightness(120%) !important;
+    }
 }

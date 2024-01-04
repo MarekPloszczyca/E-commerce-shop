@@ -1,3 +1,4 @@
+
 .form {
   display: flex;
   flex-direction: column;
@@ -7,12 +8,42 @@
     padding: 1rem;
     font-size: 1.2rem;
     margin: 2rem 1.5rem 0 1.5rem;
-    width:100%;
+    width: 100%;
     max-width: 30rem;
     background-color: #255841;
     color: #ffffff;
     border-radius: 0.5rem;
     border: none;
     outline: none;
+    cursor: pointer;
+  }
+}
+@media (min-width: 768px) {
+  .form {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 70rem;
+    
+  }
+  .inputsContainer {
+    position: sticky;
+    top: 8rem;
+    align-self: flex-start;
+    width: 80%;
+    padding: 1rem;
+    margin-right:1rem;
+    border-radius: 0.5rem;
+  }
+  .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #fcf6ee 50%, white 50%);
+  }
+}
+@media (min-width:1024px){
+  .form button:hover{
+    filter: brightness(120%);
   }
 }

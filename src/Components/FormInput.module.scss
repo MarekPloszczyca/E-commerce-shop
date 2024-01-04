@@ -1,7 +1,6 @@
 .container {
   position: relative;
   display: flex;
-
   justify-content: center;
   align-items: center;
   input {
@@ -15,6 +14,14 @@
     transition: 0.3s;
     &::placeholder {
       font-family: "Open Sans", sans-serif;
+    }
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
     }
   }
 }
@@ -42,7 +49,21 @@
   padding: 0.2rem;
   border-radius: 0.2rem;
 }
-.emailWarning{
-    @extend .warning;
-    top:4.5rem;
+.emailWarning {
+  @extend .warning;
+  top: 4.5rem;
+}
+
+@media (min-width: 768px) {
+  .container input {
+    font-size: 1.2rem;
+  }
+  .description {
+    bottom: 2.7rem;
+  }
+}
+@media (min-width: 1024px) {
+  .container input:hover {
+    background-color: #efefef;
+  }
 }

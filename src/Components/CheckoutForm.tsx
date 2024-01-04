@@ -78,8 +78,8 @@ export default function CheckoutForm() {
     },
   });
   return (
-    <form className={styles.form} onSubmit={formik.handleSubmit}>
-      <FormInput
+    <div className={styles.container}><form className={styles.form} onSubmit={formik.handleSubmit}>
+      <div className={styles.inputsContainer}><FormInput
         text="First Name"
         name="firstName"
         type="text"
@@ -150,9 +150,8 @@ export default function CheckoutForm() {
         value={formik.values.email}
         touched={formik.touched.email}
         error={formik.errors.email}
-      />
+      /></div>
       <CheckoutProducts />
-    
-    </form>
+    </form></div>
   );
 }

@@ -32,7 +32,7 @@ export default function FormInput(props: Props) {
         <span
           className={
             props.name === "email" &&
-            props.value.length > window.innerWidth / 28
+            props.value.length > 10
               ? styles.emailWarning
               : styles.warning
           }

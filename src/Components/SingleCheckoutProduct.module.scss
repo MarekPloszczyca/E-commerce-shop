@@ -2,7 +2,7 @@
   display: flex;
   position: relative;
   justify-content: space-between;
-  width:100%;
+  width: 100%;
   align-items: center;
   padding: 1.5rem 0;
   font-size: 0.9rem;
@@ -33,5 +33,18 @@
   }
   .price {
     text-align: end;
+  }
+}
+
+@media (min-width: 768px) {
+  .singleProduct {
+    font-size: 1.1rem;
+    img{
+      width:5rem;
+    }
+  }
+  .quantity{
+    left:3.6rem !important;
+    top:1.2rem !important;
   }
 }
