@@ -31,7 +31,8 @@ export default function FormInput(props: Props) {
       {props.touched && props.error ? (
         <span
           className={
-            props.name === "email" && props.value.length > 13
+            props.name === "email" &&
+            props.value.length > window.innerWidth / 28
               ? styles.emailWarning
               : styles.warning
           }

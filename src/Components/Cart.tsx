@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import styles from "./Cart.module.scss";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -7,13 +7,13 @@ import CartProduct from "./CartProduct";
 import CartCost from "./CartCost";
 
 export default function Cart(props: { reminder: (boolean : boolean) => void }) {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<JSX.Element[]>([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const cart = useSelector((state: { products: [] }) => state.products);
 
   useEffect(() => {
     if (cart.length !== 0) {
-      const productsArray: any = cart.map(
+      const productsArray = cart.map(
         (product: {
           id: number;
           img: string;

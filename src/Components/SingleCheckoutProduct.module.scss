@@ -1,0 +1,36 @@
+.singleProduct{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    padding:1.5rem 0;
+    div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    img{
+        width:4rem;
+    }
+    p{
+        font-weight: bold;
+        padding-left:0.5rem;
+        text-align: center;
+    }
+   
+
+    .quantity{
+        position: absolute;
+        left:3.1rem;
+        top:1rem;
+        font-weight: bold;
+        width:1rem;
+        height:1rem;
+        padding:0.2rem;
+        border-radius: 50%;
+        background-color: rgb(191, 191, 191);
+    }
+  .price{
+    text-align: end;
+  }
+}

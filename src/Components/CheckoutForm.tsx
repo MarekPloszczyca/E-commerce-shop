@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import styles from "./CheckoutForm.module.scss";
 import FormInput from "./FormInput";
+import CheckoutProducts from "./CheckoutProducts";
 
 interface Values {
   firstName?: string;
@@ -151,7 +152,7 @@ export default function CheckoutForm() {
         touched={formik.touched.email}
         error={formik.errors.email}
       />
-
+      <CheckoutProducts />
       <button type="submit">Order</button>
     </form>
   );
