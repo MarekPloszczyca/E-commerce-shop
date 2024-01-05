@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import styles from "./CheckoutForm.module.scss";
 import FormInput from "./FormInput";
 import CheckoutProducts from "./CheckoutProducts";
+import { useState } from "react";
 
 interface Values {
   firstName?: string;
@@ -56,6 +57,7 @@ const validate = (values: Values) => {
 };
 
 export default function CheckoutForm(props: { submit: () => void }) {
+  const [loading, setLoading] = useState(false);
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -68,14 +70,18 @@ export default function CheckoutForm(props: { submit: () => void }) {
     },
     validate,
     onSubmit: (values) => {
-      props.submit();
-      values.firstName = "";
-      values.lastName = "";
-      values.address = "";
-      values.postalCode = "";
-      values.city = "";
-      values.phone = "";
-      values.email = "";
+      setLoading(true);
+      setTimeout(() => {
+        props.submit();
+        values.firstName = "";
+        values.lastName = "";
+        values.address = "";
+        values.postalCode = "";
+        values.city = "";
+        values.phone = "";
+        values.email = "";
+        setLoading(false);
+      }, 1500);
     },
   });
   return (
@@ -155,7 +161,7 @@ export default function CheckoutForm(props: { submit: () => void }) {
             error={formik.errors.email}
           />
         </div>
-        <CheckoutProducts />
+        <CheckoutProducts loading={loading} />
       </form>
     </div>
   );

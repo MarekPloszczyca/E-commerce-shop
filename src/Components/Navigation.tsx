@@ -57,7 +57,10 @@ const menuOptions = {
   },
 };
 
-export default function Navigation(props: { visible?: boolean }) {
+export default function Navigation(props: {
+  visible?: boolean;
+  confirmed?: boolean;
+}) {
   const [display, setDisplay] = useState(false);
   const [categories, setCategories] = useState(false);
   const [informations, setInformations] = useState(false);
@@ -71,7 +74,7 @@ export default function Navigation(props: { visible?: boolean }) {
   };
 
   return (
-    <nav className={styles.nav}>
+    <nav className={props.confirmed ? styles.blur : styles.nav}>
       <div className={styles.upperNav}>
         <MenuIcon
           menu={() => {

@@ -4,8 +4,8 @@ import Footer from "../Components/Footer";
 import ScrollToTop from "../Components/Functional/ScrollToTop";
 import CheckoutForm from "../Components/CheckoutForm";
 import SectionHeader from "../Components/SectionHeader";
-import styles from "./Prices.module.scss";
 import OrderConfirmation from "../Components/OrderConfirmation";
+import styles from "./Checkout.module.scss";
 
 export default function Checkout() {
   const [formSubmited, setFormSubmited] = useState(false);
@@ -16,13 +16,17 @@ export default function Checkout() {
 
   return (
     <Fragment>
-      <Navigation visible />
-      <div className={formSubmited ? styles.testTwo : undefined}>
+      <Navigation visible confirmed={formSubmited} />{" "}
+      <div className={formSubmited ? styles.confirmed : undefined}>
         <SectionHeader text="Delivery informations" />
+      </div>
+      <div className={formSubmited ? styles.confirmed : undefined}>
         <CheckoutForm submit={submitHandler} />
       </div>
       {formSubmited && <OrderConfirmation />}
-      <Footer />
+      <div className={formSubmited ? styles.confirmed : undefined}>
+        <Footer />
+      </div>
       <ScrollToTop />
     </Fragment>
   );

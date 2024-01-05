@@ -38,9 +38,14 @@
   @extend .hiddenNav;
   height: 12.5rem;
 }
-.hidden{
+.hidden {
   visibility: hidden;
   pointer-events: none;
+}
+.blur {
+  @extend .nav;
+  pointer-events: none;
+  filter: blur(0.1rem);
 }
 @media (min-width: 1024px) {
   .cartIcon svg {

@@ -52,7 +52,7 @@
     position: relative;
     top: 0.35rem;
     color: red;
-    width:100%;
+    width: 100%;
   }
   .deliveryPrice {
     position: absolute;
@@ -66,20 +66,57 @@
   color: #ffffff !important;
   background-color: #255841 !important;
 }
+
+.load {
+  width: 0.8rem;
+  height: 0.8rem;
+  border: solid 0.3rem #ffffff;
+  border-radius: 50%;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  -webkit-transition: all 0.5s ease-in;
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  transition: all 0.5s ease-in;
+  animation-name: rotate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
 @media (min-width: 768px) {
   .checkoutProducts {
-    width:80%;
+    width: 80%;
     margin: 0;
-    padding:2rem ;
+    padding: 2rem;
     background-color: #ffffff;
   }
 }
 
-@media (min-width:1024px){
-    .discount button:hover{
-        filter: brightness(90%);
-    }
-    .discountButton:hover{
-        filter: brightness(120%) !important;
-    }
+@media (min-width: 1024px) {
+  .discount button:hover {
+    filter: brightness(90%);
+  }
+  .discountButton:hover {
+    filter: brightness(120%) !important;
+  }
 }

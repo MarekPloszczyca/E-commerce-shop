@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import styles from "./CheckoutProducts.module.scss";
 import SingleCheckoutProduct from "./SingleCheckoutProduct";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-export default function CheckoutProducts() {
+export default function CheckoutProducts(props: { loading: boolean }) {
+  const navigate = useNavigate();
   const [products, setProducts] = useState<JSX.Element[]>([]);
   const [productsNumber, setProductsNumber] = useState(0);
   const [productsPrice, setProductsPrice] = useState(0);
@@ -13,7 +15,7 @@ export default function CheckoutProducts() {
 
   useEffect(() => {
     if (cart.length === 0) {
-      return;
+      return navigate("/");
     }
     const productsArray = cart.map(
       (product: {
@@ -35,7 +37,7 @@ export default function CheckoutProducts() {
       }
     );
     setProducts(productsArray);
-  }, [cart]);
+  }, [cart, navigate]);
 
   useEffect(() => {
     let number = 0;
@@ -98,10 +100,12 @@ export default function CheckoutProducts() {
             : productsPrice.toFixed(2)
         } PLN`}</p>
         <span className={styles.deliveryPrice}>
-          {productsPrice < 150 &&`(Including 10 PLN delivery price)`}
+          {productsPrice < 150 && `(Including 10 PLN delivery price)`}
         </span>
       </div>
-      <button type="submit">Order</button>
+      <button type="submit">
+        {props.loading ? <div className={styles.load}></div> : `Order`}
+      </button>
     </div>
   );
 }
