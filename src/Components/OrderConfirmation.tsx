@@ -26,7 +26,6 @@ export default function OrderConfirmation() {
     }
     setOrderNumber(Math.floor(Math.random() * 10000));
     interval = setInterval(() => {
-      console.log("X");
       setTimer((current) => current - 1);
     }, 1000);
     firstLoad.current = false;

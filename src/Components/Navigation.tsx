@@ -1,11 +1,13 @@
 import styles from "./Navigation.module.scss";
 import Logo from "./Logo";
 import MenuIcon from "./MenuIcon";
+import NavigationOptions from "./NavigationOptions";
 import { CartOutline } from "react-ionicons";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Dispatch, SetStateAction } from "react";
 import { Link } from "react-router-dom";
-import NavigationOptions from "./NavigationOptions";
+import { useSelector } from "react-redux";
+import { InformationCircleOutline } from "react-ionicons";
 
 const menuOptions = {
   category: {
@@ -61,10 +63,31 @@ export default function Navigation(props: {
   visible?: boolean;
   confirmed?: boolean;
 }) {
+  const cart = useSelector((state: { products: [] }) => state.products);
   const [display, setDisplay] = useState(false);
   const [categories, setCategories] = useState(false);
   const [informations, setInformations] = useState(false);
   const [delivery, setDelivery] = useState(false);
+  const [added, setAdded] = useState(false);
+  const userCart = useRef([]);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    if (!loaded) {
+      userCart.current = cart;
+      return setLoaded(true);
+    }
+    if (JSON.stringify(cart) === JSON.stringify(userCart.current)) {
+      return;
+    }
+    if (JSON.stringify(cart) !== JSON.stringify(userCart.current)) {
+      userCart.current = cart;
+      setAdded(true);
+      setTimeout(() => {
+        setAdded(false);
+      }, 1000);
+    }
+  }, [cart, userCart, loaded]);
 
   const displayHandler = (
     state: boolean,
@@ -84,7 +107,7 @@ export default function Navigation(props: {
         <Logo />
 
         <Link to="/cart" className={props.visible ? styles.hidden : undefined}>
-          <div className={styles.cartIcon}>
+          <div className={added ? styles.animatedCart : styles.cartIcon}>
             <CartOutline />
           </div>
         </Link>
@@ -118,6 +141,10 @@ export default function Navigation(props: {
           }}
           stateFunction={setInformations}
         />
+      </div>
+      <div className={!added? styles.addInformation : styles.visible}>
+        <InformationCircleOutline color={"#ffffff"} />
+        Successfully added to cart
       </div>
     </nav>
   );

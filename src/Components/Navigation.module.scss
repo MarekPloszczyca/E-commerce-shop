@@ -47,6 +47,60 @@
   pointer-events: none;
   filter: blur(0.1rem);
 }
+.animatedCart {
+  @extend .cartIcon;
+  position: relative;
+  animation-name: add;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+}
+@keyframes add {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 0.3rem;
+  }
+  100% {
+    left: 0;
+  }
+}
+.addInformation {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  right: 0.5rem;
+  padding: 1rem 0.5rem;
+  top: 5rem;
+  color: #ffffff;
+  background-color: #255841;
+  border-radius: 0.2rem;
+  border-top-right-radius: 0;
+  opacity: 0;
+  transition: 0.3s;
+  svg {
+    position: relative;
+    top: 0.2rem;
+    padding: 0 0.5rem;
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+  }
+  &:after {
+    position: absolute;
+    content: "";
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #255841;
+    right: 0.32rem;
+    top: -0.75rem;
+    transform: rotate(45deg);
+  }
+}
+.visible {
+  @extend .addInformation;
+  opacity: 1;
+  transition: 0.3s;
+}
 @media (min-width: 1024px) {
   .cartIcon svg {
     width: 2.5rem !important;
@@ -59,5 +113,8 @@
   }
   .shownNav {
     height: 17rem;
+  }
+  .addInformation {
+    right: 0.9rem;
   }
 }
