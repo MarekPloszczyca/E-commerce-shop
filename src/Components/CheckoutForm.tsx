@@ -55,7 +55,7 @@ const validate = (values: Values) => {
   return errors;
 };
 
-export default function CheckoutForm() {
+export default function CheckoutForm(props: { submit: () => void }) {
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -68,6 +68,7 @@ export default function CheckoutForm() {
     },
     validate,
     onSubmit: (values) => {
+      props.submit();
       values.firstName = "";
       values.lastName = "";
       values.address = "";
@@ -78,80 +79,84 @@ export default function CheckoutForm() {
     },
   });
   return (
-    <div className={styles.container}><form className={styles.form} onSubmit={formik.handleSubmit}>
-      <div className={styles.inputsContainer}><FormInput
-        text="First Name"
-        name="firstName"
-        type="text"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.firstName}
-        touched={formik.touched.firstName}
-        error={formik.errors.firstName}
-      />
+    <div className={styles.container}>
+      <form className={styles.form} onSubmit={formik.handleSubmit}>
+        <div className={styles.inputsContainer}>
+          <FormInput
+            text="First Name"
+            name="firstName"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.firstName}
+            touched={formik.touched.firstName}
+            error={formik.errors.firstName}
+          />
 
-      <FormInput
-        text="Last Name"
-        name="lastName"
-        type="text"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.lastName}
-        touched={formik.touched.lastName}
-        error={formik.errors.lastName}
-      />
-      <FormInput
-        text="Address"
-        name="address"
-        type="text"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.address}
-        touched={formik.touched.address}
-        error={formik.errors.address}
-      />
+          <FormInput
+            text="Last Name"
+            name="lastName"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.lastName}
+            touched={formik.touched.lastName}
+            error={formik.errors.lastName}
+          />
+          <FormInput
+            text="Address"
+            name="address"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.address}
+            touched={formik.touched.address}
+            error={formik.errors.address}
+          />
 
-      <FormInput
-        text="Postal Code"
-        name="postalCode"
-        type="string"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.postalCode}
-        touched={formik.touched.postalCode}
-        error={formik.errors.postalCode}
-      />
-      <FormInput
-        text="City"
-        name="city"
-        type="text"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.city}
-        touched={formik.touched.city}
-        error={formik.errors.city}
-      />
-      <FormInput
-        text="Phone"
-        name="phone"
-        type="number"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.phone}
-        touched={formik.touched.phone}
-        error={formik.errors.phone}
-      />
-      <FormInput
-        text="Email"
-        name="email"
-        type="email"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.email}
-        touched={formik.touched.email}
-        error={formik.errors.email}
-      /></div>
-      <CheckoutProducts />
-    </form></div>
+          <FormInput
+            text="Postal Code"
+            name="postalCode"
+            type="string"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.postalCode}
+            touched={formik.touched.postalCode}
+            error={formik.errors.postalCode}
+          />
+          <FormInput
+            text="City"
+            name="city"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.city}
+            touched={formik.touched.city}
+            error={formik.errors.city}
+          />
+          <FormInput
+            text="Phone"
+            name="phone"
+            type="number"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.phone}
+            touched={formik.touched.phone}
+            error={formik.errors.phone}
+          />
+          <FormInput
+            text="Email"
+            name="email"
+            type="email"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.email}
+            touched={formik.touched.email}
+            error={formik.errors.email}
+          />
+        </div>
+        <CheckoutProducts />
+      </form>
+    </div>
   );
 }

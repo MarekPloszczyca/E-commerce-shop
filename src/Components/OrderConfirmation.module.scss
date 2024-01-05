@@ -1,0 +1,42 @@
+.confirmation {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Open sans", sans-serif;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 40%;
+  background-color: #fcf6ee;
+  padding: 1rem;
+  border: solid 0.1rem #eae5df;
+  z-index: 100;
+  -webkit-box-shadow: 0 0 2rem 0 #255841;
+  -moz-box-shadow: 0 0 2rem 0 #255841;
+  box-shadow: 0 0 2rem 0 #255841;
+  h5 {
+
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+  svg {
+    width: 3.5rem;
+    height: 3.5rem;
+    color: #255841;
+  }
+  p {
+    color: #535353;
+    padding-top:0.5rem;
+  }
+  .goBack{
+    font-size: 1.1rem;
+    font-weight: bold;
+    span{
+        text-decoration: underline;
+    }
+  }
+}
