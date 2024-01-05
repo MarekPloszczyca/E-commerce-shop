@@ -34,10 +34,12 @@
   box-shadow: inset 0px 11px 8px -10px #ccc;
   -webkit-tap-highlight-color: transparent;
 }
+
 .shownNav {
   @extend .hiddenNav;
   height: 12.5rem;
 }
+
 .hidden {
   visibility: hidden;
   pointer-events: none;

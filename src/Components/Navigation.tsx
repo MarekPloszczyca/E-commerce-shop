@@ -5,9 +5,9 @@ import NavigationOptions from "./NavigationOptions";
 import { CartOutline } from "react-ionicons";
 import { useEffect, useRef, useState } from "react";
 import { Dispatch, SetStateAction } from "react";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { InformationCircleOutline } from "react-ionicons";
+import NavigationCart from "./NavigationCart";
 
 const menuOptions = {
   category: {
@@ -71,6 +71,7 @@ export default function Navigation(props: {
   const [added, setAdded] = useState(false);
   const userCart = useRef([]);
   const [loaded, setLoaded] = useState(false);
+  const [cartShown, setCartShown] = useState(false);
 
   useEffect(() => {
     if (!loaded) {
@@ -95,6 +96,7 @@ export default function Navigation(props: {
   ) => {
     state ? func(false) : func(true);
   };
+  
 
   return (
     <nav className={props.confirmed ? styles.blur : styles.nav}>
@@ -106,11 +108,22 @@ export default function Navigation(props: {
         />
         <Logo />
 
-        <Link to="/cart" className={props.visible ? styles.hidden : undefined}>
+        <div
+          onClick={() => {
+            if (display) {
+              displayHandler(display, setDisplay);
+              return setTimeout(() => {
+                displayHandler(cartShown, setCartShown)
+              }, 500);
+            }
+            displayHandler(cartShown, setCartShown)
+          }}
+          className={props.visible ? styles.hidden : undefined}
+        >
           <div className={added ? styles.animatedCart : styles.cartIcon}>
             <CartOutline />
           </div>
-        </Link>
+        </div>
       </div>
       <div className={display ? styles.shownNav : styles.hiddenNav}>
         <NavigationOptions
@@ -142,10 +155,11 @@ export default function Navigation(props: {
           stateFunction={setInformations}
         />
       </div>
-      <div className={!added? styles.addInformation : styles.visible}>
+      <div className={!added ? styles.addInformation : styles.visible}>
         <InformationCircleOutline color={"#ffffff"} />
         Successfully added to cart
       </div>
+      <NavigationCart shown={cartShown} />
     </nav>
   );
 }
