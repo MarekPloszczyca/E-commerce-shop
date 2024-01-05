@@ -72,6 +72,7 @@ export default function Navigation(props: {
   const userCart = useRef([]);
   const [loaded, setLoaded] = useState(false);
   const [cartShown, setCartShown] = useState(false);
+  const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
     if (!loaded) {
@@ -96,27 +97,36 @@ export default function Navigation(props: {
   ) => {
     state ? func(false) : func(true);
   };
-  
 
   return (
     <nav className={props.confirmed ? styles.blur : styles.nav}>
       <div className={styles.upperNav}>
         <MenuIcon
-          menu={() => {
+          menuAnimationHandler={() => {
+            if (cartShown) {
+              displayHandler(cartShown, setCartShown);
+              return setTimeout(() => {
+                displayHandler(display, setDisplay);
+                displayHandler(clicked, setClicked);
+              }, 500);
+            }
             displayHandler(display, setDisplay);
+            displayHandler(clicked, setClicked);
           }}
+          clicked={clicked}
         />
         <Logo />
 
         <div
           onClick={() => {
             if (display) {
+              displayHandler(clicked, setClicked);
               displayHandler(display, setDisplay);
               return setTimeout(() => {
-                displayHandler(cartShown, setCartShown)
+                displayHandler(cartShown, setCartShown);
               }, 500);
             }
-            displayHandler(cartShown, setCartShown)
+            displayHandler(cartShown, setCartShown);
           }}
           className={props.visible ? styles.hidden : undefined}
         >

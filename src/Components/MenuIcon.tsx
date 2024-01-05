@@ -1,29 +1,20 @@
 import styles from "./MenuIcon.module.scss";
-import { useState, Fragment } from "react";
+import { Fragment } from "react";
 
-export default function MenuIcon(props: { menu: () => void }) {
-  const [clicked, setClicked] = useState(false);
-
-  const menuDisplay = (shown: boolean) => {
-    props.menu();
-    setClicked(shown);
-  };
-
-  const menuAnimationHandler = () => {
-    clicked ? menuDisplay(false) : menuDisplay(true);
-  };
-
+export default function MenuIcon(props: {
+  clicked: boolean;
+  menuAnimationHandler: () => void;
+}) {
   return (
     <Fragment>
       <div
         className={styles.iconContainer}
-        onClick={menuAnimationHandler}
-        
+        onClick={props.menuAnimationHandler}
         tabIndex={0}
       >
-        <div className={clicked ? styles.changedBar1 : styles.bar1}></div>
-        <div className={clicked ? styles.changedBar2 : styles.bar2}></div>
-        <div className={clicked ? styles.changedBar3 : styles.bar3}></div>
+        <div className={props.clicked ? styles.changedBar1 : styles.bar1}></div>
+        <div className={props.clicked ? styles.changedBar2 : styles.bar2}></div>
+        <div className={props.clicked ? styles.changedBar3 : styles.bar3}></div>
       </div>
     </Fragment>
   );
