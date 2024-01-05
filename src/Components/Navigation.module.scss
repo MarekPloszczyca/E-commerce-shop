@@ -80,6 +80,7 @@
   border-top-right-radius: 0;
   opacity: 0;
   transition: 0.3s;
+  z-index: -1;
   svg {
     position: relative;
     top: 0.2rem;
@@ -102,6 +103,7 @@
   @extend .addInformation;
   opacity: 1;
   transition: 0.3s;
+  z-index: 10;
 }
 @media (min-width: 1024px) {
   .cartIcon svg {
