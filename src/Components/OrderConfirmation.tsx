@@ -2,10 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./OrderConfirmation.module.scss";
 import { CheckmarkDoneCircleOutline } from "react-ionicons";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { resetHandler } from "./Cart/Cart";
 
 let interval: number;
 
 export default function OrderConfirmation() {
+  const cart = useSelector((state: { products: [] }) => state.products);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [timer, setTimer] = useState(10);
   const [orderNumber, setOrderNumber] = useState(0);
@@ -13,6 +17,7 @@ export default function OrderConfirmation() {
 
   useEffect(() => {
     if (timer < 0) {
+      dispatch(resetHandler());
       clearInterval(interval);
       return navigate("/");
     }
@@ -25,7 +30,7 @@ export default function OrderConfirmation() {
       setTimer((current) => current - 1);
     }, 1000);
     firstLoad.current = false;
-  }, [timer, navigate]);
+  }, [timer, navigate, cart, dispatch]);
 
   return (
     <div className={styles.confirmation}>
@@ -36,6 +41,7 @@ export default function OrderConfirmation() {
         You will be redirected to{" "}
         <span
           onClick={() => {
+            dispatch(resetHandler());
             clearInterval(interval);
             navigate("/");
           }}

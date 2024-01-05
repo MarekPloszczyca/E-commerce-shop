@@ -50,14 +50,19 @@ const cartSlice = createSlice({
       for (const product of products) {
         if (product.id === action.payload) {
           products.splice(products.indexOf(product), 1);
-  
         }
+      }
+    },
+    resetHandler: (state) => {
+      const products = state.products;
+      for (const product of products) {
+        products.splice(products.indexOf(product), 1);
       }
     },
   },
 });
 
-export const { add, remove, deleteHandler } = cartSlice.actions;
+export const { add, remove, deleteHandler, resetHandler } = cartSlice.actions;
 export const store = configureStore({
   reducer: cartSlice.reducer,
 });
