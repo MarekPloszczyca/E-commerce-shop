@@ -5,14 +5,26 @@ import { Link } from "react-router-dom";
 
 import NavCart from "../Assets/Cart/NavCart.png";
 
-export default function NavigationCart(props: { shown: boolean }) {
+export default function NavigationCart(props: {
+  shown: boolean;
+  mouseEnter: () => void;
+  mouseLeave: () => void;
+}) {
   const cart = useSelector(
     (state: { products: { img: string; title: string; quantity: number }[] }) =>
       state.products
   );
 
   return (
-    <div className={props.shown ? styles.shownCartNav : styles.cartNav}>
+    <div
+      onMouseEnter={() => {
+        props.mouseEnter();
+      }}
+      onMouseLeave={() => {
+        props.mouseLeave();
+      }}
+      className={props.shown ? styles.shownCartNav : styles.cartNav}
+    >
       {cart.length === 0 ? (
         <p>
           <img src={NavCart} />

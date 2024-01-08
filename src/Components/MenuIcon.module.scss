@@ -27,3 +27,8 @@
   @extend .bar3;
   transform: translate(0, -0.6875rem) rotate(-45deg);
 }
+@media (min-width: 1024px){
+  .iconContainer{
+    display: none;
+  }
+}

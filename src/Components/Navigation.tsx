@@ -2,12 +2,13 @@ import styles from "./Navigation.module.scss";
 import Logo from "./Logo";
 import MenuIcon from "./MenuIcon";
 import NavigationOptions from "./NavigationOptions";
+import NavigationCart from "./NavigationCart";
+import DesktopNavigation from "./DesktopNavigation";
 import { CartOutline } from "react-ionicons";
 import { useEffect, useRef, useState } from "react";
 import { Dispatch, SetStateAction } from "react";
 import { useSelector } from "react-redux";
 import { InformationCircleOutline } from "react-ionicons";
-import NavigationCart from "./NavigationCart";
 
 const menuOptions = {
   category: {
@@ -115,9 +116,18 @@ export default function Navigation(props: {
           }}
           clicked={clicked}
         />
-        <Logo />
 
+        <div className={styles.desktop}>
+          <Logo />
+          <DesktopNavigation menuOptions={menuOptions} />
+        </div>
         <div
+          onMouseEnter={() => {
+            setCartShown(true);
+          }}
+          onMouseLeave={() => {
+            setCartShown(false);
+          }}
           onClick={() => {
             if (display) {
               displayHandler(clicked, setClicked);
@@ -169,7 +179,13 @@ export default function Navigation(props: {
         <InformationCircleOutline color={"#ffffff"} />
         Successfully added to cart
       </div>
-      <NavigationCart shown={cartShown} />
+      <NavigationCart
+        shown={cartShown}
+        mouseEnter={() => setCartShown(true)}
+        mouseLeave={() => {
+          setCartShown(false);
+        }}
+      />
     </nav>
   );
 }

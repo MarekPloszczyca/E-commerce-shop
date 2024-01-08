@@ -103,4 +103,12 @@
   .product p {
     font-size: 1.1rem;
   }
+  .button button {
+    font-size: 1rem !important;
+  }
+}
+@media (min-width: 1024px) {
+  .button button:hover {
+    filter: brightness(120%);
+  }
 }

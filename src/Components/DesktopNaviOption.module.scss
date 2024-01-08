@@ -1,0 +1,48 @@
+.container {
+  height: 3.9rem;
+  padding: 0.5rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  p {
+    position: relative;
+    left: 1.3rem;
+    width: 8rem;
+    display: flex;
+    font-weight: bold;
+  }
+  .hidden {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 5.9rem;
+    width: 12rem;
+    height: 0;
+    overflow: hidden;
+    background-color: #fcf6ee;
+    transition: 0.5s;
+  }
+  li {
+    padding: 1rem;
+    list-style-type: none;
+    &:hover {
+      font-weight: bold;
+    }
+  }
+}
+.container:hover {
+  -webkit-box-shadow: inset -2px 0px 11px -1px #ccc;
+  -moz-box-shadow: inset -2px 0px 11px -1px #ccc;
+  box-shadow: inset -2px 0px 11px -1px #ccc;
+}
+
+.shown {
+  @extend .hidden;
+  height: 8rem !important;
+}
+.categories {
+  @extend .hidden;
+  height: 15rem !important;
+}

@@ -1,5 +1,4 @@
 .nav {
-  overflow: hidden;
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -94,16 +93,6 @@
     width: 1.5rem !important;
     height: 1.5rem !important;
   }
-  &:after {
-    position: absolute;
-    content: "";
-    width: 1.5rem;
-    height: 1.5rem;
-    background-color: #255841;
-    right: 0.32rem;
-    top: -0.75rem;
-    transform: rotate(45deg);
-  }
 }
 .visible {
   @extend .addInformation;
@@ -112,19 +101,29 @@
   z-index: 10;
 }
 @media (min-width: 1024px) {
-  .cartIcon svg {
-    width: 2.5rem !important;
-    height: 2.5rem !important;
+  .cartIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    cursor: pointer;
+    svg {
+      width: 2.5rem !important;
+      height: 2.5rem !important;
+    }
   }
 
   .hiddenNav {
-    font-size: 1.5rem;
-    width: 30rem;
+    display: none;
   }
-  .shownNav {
-    height: 17rem;
-  }
+
   .addInformation {
     right: 0.9rem;
+  }
+  .desktop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
   }
 }
