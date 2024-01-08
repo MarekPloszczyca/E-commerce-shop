@@ -57,6 +57,7 @@ const cartSlice = createSlice({
       const products = state.products;
       for (const product of products) {
         products.splice(products.indexOf(product), 1);
+        console.log(products)
       }
     },
   },

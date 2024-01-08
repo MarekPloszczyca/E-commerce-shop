@@ -12,6 +12,7 @@
   padding: 1.5rem 0;
   height: 2rem;
   svg {
+    cursor: pointer;
     padding: 0 1rem;
   }
 }
@@ -26,18 +27,23 @@
   overflow: hidden;
   top: 5rem;
   width: 100%;
+  max-width: 20rem;
   height: 0;
   background-color: #fcf6ee;
   color: #515151;
   transition: 0.4s;
   transition-timing-function: ease-in;
-  box-shadow: inset 0px 11px 8px -10px #ccc;
+
   -webkit-tap-highlight-color: transparent;
 }
 
 .shownNav {
   @extend .hiddenNav;
   height: 12.5rem;
+  -webkit-box-shadow: inset -2px 0px 11px -1px #ccc;
+  -moz-box-shadow: inset -2px 0px 11px -1px #ccc;
+  box-shadow: inset -2px 0px 11px -1px #ccc;
+  border-bottom-right-radius: 0.2rem;
 }
 
 .hidden {
