@@ -53,12 +53,8 @@ const cartSlice = createSlice({
         }
       }
     },
-    resetHandler: (state) => {
-      const products = state.products;
-      for (const product of products) {
-        products.splice(products.indexOf(product), 1);
-        console.log(products)
-      }
+    resetHandler: () => {
+      return initialState;
     },
   },
 });
