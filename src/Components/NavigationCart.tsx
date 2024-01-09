@@ -1,15 +1,18 @@
 import styles from "./NavigationCart.module.scss";
 import { useSelector } from "react-redux";
-import { Fragment } from "react";
+import { Fragment, forwardRef } from "react";
 import { Link } from "react-router-dom";
 
 import NavCart from "../Assets/Cart/NavCart.png";
 
-export default function NavigationCart(props: {
-  shown: boolean;
-  mouseEnter: () => void;
-  mouseLeave: () => void;
-}) {
+const NavigationCart = forwardRef(function NavigationCart(
+  props: {
+    shown: boolean;
+    mouseEnter: () => void;
+    mouseLeave: () => void;
+  },
+  ref: React.LegacyRef<HTMLDivElement>
+) {
   const cart = useSelector(
     (state: { products: { img: string; title: string; quantity: number }[] }) =>
       state.products
@@ -17,6 +20,7 @@ export default function NavigationCart(props: {
 
   return (
     <div
+      ref={ref}
       onMouseEnter={() => {
         props.mouseEnter();
       }}
@@ -52,4 +56,6 @@ export default function NavigationCart(props: {
       )}
     </div>
   );
-}
+});
+
+export default NavigationCart;

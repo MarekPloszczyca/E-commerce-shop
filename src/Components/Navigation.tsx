@@ -76,6 +76,7 @@ export default function Navigation(props: {
   const [cartShown, setCartShown] = useState(false);
   const [clicked, setClicked] = useState(false);
   const device = useWindowSize();
+  const menuButton = useRef(null);
 
   useEffect(() => {
     if (!loaded) {
@@ -102,6 +103,19 @@ export default function Navigation(props: {
     }
   }, [device]);
 
+  useEffect(() => {
+    const closingHandler = (event: MouseEvent | TouchEvent) => {
+      if (menuButton.current && !menuButton.current.contains(event.target)) {
+        setCartShown(false);
+        setDisplay(false);
+        setClicked(false);
+      }
+    };
+    document.addEventListener("click", closingHandler, true);
+    document.addEventListener("touchstart", closingHandler, true);
+    return () => document.removeEventListener("click", closingHandler, true);
+  }, []);
+
   const displayHandler = (
     state: boolean,
     func: Dispatch<SetStateAction<boolean>>
@@ -110,7 +124,10 @@ export default function Navigation(props: {
   };
 
   return (
-    <nav className={props.confirmed ? styles.blur : styles.nav}>
+    <nav
+      ref={menuButton}
+      className={props.confirmed ? styles.blur : styles.nav}
+    >
       <div className={styles.upperNav}>
         <MenuIcon
           menuAnimationHandler={() => {
