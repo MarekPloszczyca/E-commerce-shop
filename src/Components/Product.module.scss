@@ -36,7 +36,9 @@
   }
 }
 @media (min-width: 1024px) {
-  
+  .productContainer img:hover{
+    transform: scale(1.1);
+  }
 }
 @media (min-width: 1440px) {
   .productContainer {
