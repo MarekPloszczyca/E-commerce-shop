@@ -1,11 +1,11 @@
 .list {
   display: flex;
-  right:5.5rem;
+  right: 5.5rem;
   padding: 1rem;
   font-weight: bold;
   list-style-type: none;
   cursor: pointer;
- 
+
   p {
     display: flex;
     svg {
@@ -29,7 +29,7 @@
 .categoriesContainerHidden {
   height: 0;
   position: relative;
-  right: 2rem;
+  right: 1.5rem;
   overflow: hidden;
   transition: 0.4s;
   visibility: hidden;

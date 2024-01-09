@@ -133,6 +133,9 @@ export default function Navigation(props: {
         </div>
         <div
           onMouseOver={() => {
+            if (device.width < 1024) {
+              return;
+            }
             if (display) {
               setClicked(false);
               setCategories(false);
@@ -145,6 +148,9 @@ export default function Navigation(props: {
             setCategories(false);
           }}
           onMouseOut={() => {
+            if (device.width < 1024) {
+              return;
+            }
             setCartShown(false);
             setClicked(false);
             setCategories(false);
@@ -153,6 +159,7 @@ export default function Navigation(props: {
             if (display) {
               displayHandler(clicked, setClicked);
               displayHandler(display, setDisplay);
+
               return setTimeout(() => {
                 displayHandler(cartShown, setCartShown);
               }, 500);
