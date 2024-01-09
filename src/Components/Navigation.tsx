@@ -8,6 +8,7 @@ import { CartOutline } from "react-ionicons";
 import { useEffect, useRef, useState } from "react";
 import { Dispatch, SetStateAction } from "react";
 import { useSelector } from "react-redux";
+import { useWindowSize } from "@uidotdev/usehooks";
 import { InformationCircleOutline } from "react-ionicons";
 
 const menuOptions = {
@@ -74,6 +75,7 @@ export default function Navigation(props: {
   const [loaded, setLoaded] = useState(false);
   const [cartShown, setCartShown] = useState(false);
   const [clicked, setClicked] = useState(false);
+  const device = useWindowSize();
 
   useEffect(() => {
     if (!loaded) {
@@ -91,6 +93,14 @@ export default function Navigation(props: {
       }, 1000);
     }
   }, [cart, userCart, loaded]);
+
+  useEffect(() => {
+    if (device) {
+      setCartShown(false);
+      setDisplay(false);
+      setClicked(false);
+    }
+  }, [device]);
 
   const displayHandler = (
     state: boolean,
@@ -122,11 +132,22 @@ export default function Navigation(props: {
           <DesktopNavigation menuOptions={menuOptions} />
         </div>
         <div
-          onMouseEnter={() => {
+          onMouseOver={() => {
+            if (display) {
+              setClicked(false);
+              setCategories(false);
+              return setTimeout(() => {
+                setCartShown(true);
+              }, 500);
+            }
             setCartShown(true);
+            setClicked(false);
+            setCategories(false);
           }}
-          onMouseLeave={() => {
+          onMouseOut={() => {
             setCartShown(false);
+            setClicked(false);
+            setCategories(false);
           }}
           onClick={() => {
             if (display) {
@@ -181,9 +202,15 @@ export default function Navigation(props: {
       </div>
       <NavigationCart
         shown={cartShown}
-        mouseEnter={() => setCartShown(true)}
+        mouseEnter={() => {
+          setCartShown(true);
+          setClicked(false);
+          setCategories(false);
+        }}
         mouseLeave={() => {
           setCartShown(false);
+          setClicked(false);
+          setCategories(false);
         }}
       />
     </nav>

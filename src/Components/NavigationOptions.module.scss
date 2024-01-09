@@ -1,13 +1,13 @@
 .list {
   display: flex;
+  right:5.5rem;
   padding: 1rem;
   font-weight: bold;
   list-style-type: none;
   cursor: pointer;
+ 
   p {
     display: flex;
-    justify-content: space-between;
-    
     svg {
       position: relative;
       right: 0.8rem;
@@ -48,4 +48,3 @@
     right: 0;
   }
 }
-
