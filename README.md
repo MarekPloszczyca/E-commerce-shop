@@ -3,6 +3,10 @@ This website is a dummy e-commerce shop, where user can order products. "Product
 ![Shop1](https://github.com/MarekPloszczyca/E-commerce-shop/assets/94579632/e6a55d97-38ab-4077-8b56-a4ad81bfb3d4)
 
 ## Technologies
-* React (including Redux & Router)
+* React
+* React Redux
+* React Router
 * Typescript
 * SCSS
+* Formik
+* Vite
