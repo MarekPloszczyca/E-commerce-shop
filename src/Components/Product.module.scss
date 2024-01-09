@@ -6,6 +6,8 @@
   img {
     width: 50%;
     height: auto;
+    object-fit: contain;
+    transition: 0.5s;
   }
   h6 {
     font-size: 1rem;
@@ -16,11 +18,10 @@
     letter-spacing: 0.2rem;
     padding-bottom: 1rem;
   }
-  
 }
 @media (min-width: 768px) {
   .productContainer {
-    min-height: 30rem;
+    min-height: 32rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -33,6 +34,9 @@
       min-height: 3rem;
     }
   }
+}
+@media (min-width: 1024px) {
+  
 }
 @media (min-width: 1440px) {
   .productContainer {
